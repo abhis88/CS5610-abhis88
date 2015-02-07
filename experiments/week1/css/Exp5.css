@@ -1,0 +1,111 @@
+﻿body {
+    background-image: url(../../../images/week1/email.jpg);
+    background-size: cover;
+}
+
+.main_div {
+    text-align: center;
+}
+
+.email_div {
+    background-color: rgba(72,72,72,0.5);
+    padding-left: 30px;
+    padding-right: 305px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100px;
+    height: 300px;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 480px;
+    border-radius: 7px;
+}
+
+.class1, .class2, .class3 {
+    color: gray;
+    width:370px;
+    height:30px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    padding-left: 10px;
+    padding-right:0px;
+    padding-top:10px;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+.class1{
+    background-image:url(../../../name.png);
+}
+
+.class2{
+    background-image:url(../../images/week1/email.jpg);
+}
+.class1, .class2{
+    padding-bottom: 10px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+    background-position:center left;
+}
+
+.class3{
+    padding-bottom: 100px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+    background-position:center left;
+    background-image:url(../../../text.jpg);
+}
+
+
+.submit{
+    width:180px;
+    height:40px;
+    margin-left:100px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color:gray;
+    font-size: 21px;
+    background-color:#FFFF99;
+}
+
+.submit:hover{
+    background-color:#FF9900;
+}
+
+.viewsource{
+    margin-top:20px;
+}
+
+.references{
+    margin-top:20px;
+}
+
+.code_div {
+    border: 1px solid red;
+    width: 410px;
+    height: 120px;
+    border-radius: 5px;
+    background-color: lightyellow;
+    padding-left: 5px;
+    padding-bottom:15px;
+    margin-top:450px;
+    padding-top:10px;
+}
+.code_content
+{
+    margin-top:10px;
+}
+
+.footer_div{
+    text-align:center;
+}
+
+.emailstory{
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+.importantline{
+    padding-bottom:10px;
+}

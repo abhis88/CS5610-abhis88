@@ -1,0 +1,47 @@
+﻿.main_div
+{
+    text-align:center;
+}
+
+.body_div
+{
+    text-align:left;
+    margin-left:30px;
+}
+
+.video_heading, .audio_heading
+{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.video_tag, .audio_tag
+{
+    align-self:center;
+}
+
+.code_div {
+    border: 1px solid red;
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: lightyellow;
+    padding-left: 5px;
+    padding-bottom:15px;
+    margin-bottom:30px;
+}
+.code_content
+{
+    padding-top:10px;
+}
+
+.footer_div
+{
+    padding-top:15px;
+    clear:both;
+    text-align:center;
+}
+
+.viewsource
+{
+    padding-bottom:20px;
+}

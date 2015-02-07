@@ -1,0 +1,7 @@
+﻿../../story/whatisnext.htm?../experiments/week2/          What is Next?
+html/Exp5.html                                            Simple Responsive Webpage
+html/Exp4.html                                            BootStrap and Responsive Webpage
+html/Exp6.html                                            BootStrap Examples
+html/Exp1.html                                            Basic JavaScript
+html/Exp3.html                                            Form Validation using JavaScript
+html/Exp2.html                                            Google Map and Google Weather using JavaScript

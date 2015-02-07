@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Live Weather Information</title>
+    <link rel="stylesheet" href="../css/Exp2.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=weather"></script>
+    <script src="../js/Exp2.js"></script>
+</head>
+<body>
+    <div class="heading"> Google Map using JavaScript </div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The aim of the experiment is to use google API to show weather report on this webpage. 
+            I tried to show two types of google earth view.
+            <ul>
+                <li> Google Earth without Cloud and Weather Info </li>
+                <li> Google Earth with Cloud and Weather Info </li>
+            </ul>
+        </article>
+    </div>
+    <div class="heading_line"></div>
+
+    <div class="examples">Google Map using JavaScript (Google API)</div>
+    <div class="article">
+        <div id="map-canvas-2"></div>
+    </div>
+
+    <div class="code_content_1">
+        <div class="code"><strong> Code Snippet </strong></div>
+        <code>
+            <pre>
+function initialize() {
+  var googleMap = {
+      zoom: 2, center: new google.maps.LatLng(49.265984, -123.127491)
+      };
+ var map1 = new google.maps.Map(document.getElementById('map-canvas-2'), googleMap);
+ google.maps.event.addDomListener(window, 'load', initialize);
+ 
+}
+</pre>
+        </code>
+    </div>
+
+    <div class="examples">Google Map with Weather Information using JavaScript (Google API)</div>
+    <div class="article">
+        <div id="map-canvas-1"></div>
+    </div>
+
+    <div class="code_content_2">
+        <div class="code"><strong> Code Snippet </strong></div>
+        <code>
+            <pre>
+function initialize() {
+ var googleMap = {
+     zoom: 2, center: new google.maps.LatLng(49.265984, -123.127491)
+ };
+ var map = new google.maps.Map(document.getElementById('map-canvas-1'), googleMap);
+ var weatherLayer = new google.maps.weather.WeatherLayer({
+ temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+ });
+ weatherLayer.setMap(map);
+ var cloudLayer = new google.maps.weather.CloudLayer();
+ cloudLayer.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</pre>
+        </code>
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="examples">
+        Source Code
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week2/html/Exp2.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week2/css/Exp2.css" target="_blank">View CSS Source</a></div>
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="examples">
+        References
+        <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

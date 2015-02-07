@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="../css/Exp3.css" />
+    <script src="../js/Exp3.js"></script>
+</head>
+<body>
+    <div class="heading"> Form Validation using JavaScirpt </div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The main objective of this experiment is to learn basics of JavaScript. JavaScript plays a vital role in the
+            the construction of a webpage. Using JavaScript, we can do various calculations, create different alerts,
+            animations on a webpage etc. JavaScript is a very vast area and requires basic OOPS concept. Usually, we need
+            to write different functions for each functionality. Below, I have tried to show some of the many features
+            provided by JavaScripts. I will try to validate the various input elements using JavaScript.
+        </article>
+    </div>
+    <div class="heading_line"></div>
+    <div class="examples">Form Validation through JavaScript </div>
+    <div class="form_div">
+        <form>
+            <div class="row">
+                <div class="column1">
+                    <label for="firstName"> First Name </label>
+                </div>
+                <div>
+                    <input type="text" id="firstName" placeholder="Abhishek" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column1">
+                    <label for="lastName"> Last Name </label>
+                </div>
+                <div>
+                    <input type="text" id="lastName" placeholder="Kumar" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column1">
+                    <label for="emailId"> Email Id </label>
+                </div>
+                <div>
+                    <input type="text" id="emailId" placeholder="someone@someone.com" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column1">
+                    <label for="phoneNumber"> Phone No. </label>
+                </div>
+                <div>
+                    <input type="text" id="phoneNumber" placeholder="8572348869" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column1">
+                    <label for="gender"> Gender </label>
+                </div>
+                <div>
+                    <label for="male">Male</label><input type="radio" name="gender" id="male" />
+                    <label for="female">Female </label><input type="radio" name="gender" id="female" />
+                </div>
+            </div>
+
+            <div>
+                <input type="button" name="Submit" id="submit" value="Submit" onclick="check()" />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="code_content_1">
+        <div class="code"><strong> Code Snippet </strong></div>
+        <code>
+            <pre>
+    /* Validating for First Name */
+function firstName() {
+var firstName = document.getElementById("firstName").value;
+if (firstName == null || firstName == "") {
+    alert("First name is blank. Please fill your First Name.");
+    }
+}
+/* Validating for Second Name */
+function lastName() {
+    var lastName = document.getElementById("lastName").value;
+    if (lastName == null || lastName == "") {
+        alert("Last name is blank. Please fill your Last Name.");
+    }
+}
+/* Validating for Email Id */
+function emailId() {
+    var emailId = document.getElementById("emailId").value;
+    var atposition = emailId.indexOf("@");
+    var dotposition = emailId.lastIndexOf(".");
+    if (emailId == null || emailId == "" || atposition < 1 || dotposition < 1 
+    || atposition > dotposition || dotposition-atposition<2 || 
+       dotposition+2>=emailId.length) {
+        alert("Invalide Email Id. Please fill your correct Email Id.
+                 (Ex: letters@domain.com)");
+    }
+}
+/* Validating for Phone Number */
+function phoneNumber() {
+    var check_flag = false;
+    var counter = 0;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    if (phoneNumber == null || phoneNumber == "") {
+        alert("Invalide Phone Number. Please fill your correct Phone Number. 
+                (Ex: 8572348869)");
+    }
+    for (var i = 0; i < phoneNumber.length; i++) {
+        if (phoneNumber[i] >= 0 && phoneNumber[i] <= 9) {
+            check_flag = false;
+            counter = counter + 1;
+        } else {
+            check_flag = true;
+            counter = 0;
+        }
+    }
+    if (check_flag || counter!=10) {
+        alert("Phone Number Invalid" +counter);
+    }
+}
+/* Validating for Gender */
+function gender() {
+    var male = document.getElementById("male").checked;
+    var female = document.getElementById("female").checked;
+            
+    if (!(male || female)) {
+        alert("Choose Gender");
+    }
+}
+function check() {
+    firstName();
+    lastName();
+    emailId();
+    phoneNumber();
+    gender();
+}
+</pre>
+        </code>
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="examples">
+        Source Code
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week2/html/Exp3.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week2/css/Exp3.css" target="_blank">View CSS Source</a></div>
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="examples">
+        References
+        <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

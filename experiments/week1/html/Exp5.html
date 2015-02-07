@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Email Form</title>
+    <link rel="stylesheet" href="../css/Exp5.css">
+</head>
+<body>
+    <div class="main_div">
+        <h1>EMAIL FORM : HTML and CSS</h1>
+        <nav>
+            <a href="../../../Default.aspx">Home</a>
+        </nav>
+        <hr />
+    </div>
+
+    <div class="emailstory"><strong>Email</strong></div>
+    I came across this utitlity to send Email to anyone using HTML and CSS. I have implemented it. Request you to try it.
+    <div class="email_div">
+
+        <form class="email_form" id="form1" action="MAILTO:kumar.abh@husky.neu.edu" method="post" enctype="text/plain">
+            <input type="text" name="input1" class="class1" placeholder="Name" />
+            <input type="email" name="input2" class="class2" placeholder="Email" />
+            <input type="text" name="input3" class="class3" placeholder="Comment" />
+
+            <div>
+                <input type="submit" value="SEND" id="submit1" class="submit" />
+            </div>
+        </form>
+    </div>
+
+
+    <div class="code_div">
+        <div class="importantline">This is the main part of code which is used to send email. This evokes your default email software.</div>
+        <strong> Code Snippet </strong>
+        <div class="code_content">
+            <code>
+                action="MAILTO:kumar.abh@husky.neu.edu" method="post"
+            </code>
+        </div>
+    </div>
+
+    <!-- ---------------------------- VIEW SOURCE FILES ----------------------------------------- -->
+
+    <div class="viewsource">
+        <h4>Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/html/Exp5.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/css/Exp5.css" target="_blank">View CSS Source</a></div>
+    </div>
+
+    <!-- ---------------------------- REFERENCES  ----------------------------------------- -->
+
+    <div class="references"><strong>References</strong></div>
+    <ul>
+        <li> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a> </li>
+    </ul>
+
+    <!------------------------------ FOOTER --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+
+</body>
+</html>

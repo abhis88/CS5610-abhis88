@@ -1,0 +1,112 @@
+﻿body
+    {
+        background-image:url("../images/landing_page/grey.jpg");
+        margin-top:35px;
+    }
+
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        list-style: none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    ul.master_navigation li
+    {
+        display: inline-block;
+        padding: 0 0.5%;
+    }
+
+    a
+    {
+        color: #FF8000;
+        font-weight: bold;
+        text-decoration: none;
+        
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #0f0;
+       
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+
+    ul.pro_exp_blog_id
+    {
+        text-align:center;
+    }
+
+    ul.pro_exp_blog_id li
+    {
+        border: 2px solid grey;
+        display: inline-block;
+        font-size:36px;
+        font-weight:bold;
+        padding: 0 0.5%;
+        color:#0a0;
+        margin-right:2em;
+        font-family:"Bookman Old Style";
+        text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de;
+        margin-top:30px;
+    }
+
+    .profile_circular_img
+    {
+        width:200px;
+        height:200px;
+        background-position: center;
+        background-image: url("../images/landing_page/profile_pic.png");
+        background-size:cover;
+        display:block;
+        border-radius:50px;
+        border: 5px solid #eee;
+        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);        
+        margin-left:550px;       
+        margin-top:30px;
+    }
+
+    .content
+    {
+        color:black;
+        font-family:'Comic Sans MS';
+        width:800px;
+        text-align:center justify;        
+        margin-left:290px;
+        margin-top:20px;
+        text-align:center;
+    }
+
+    .content1
+    {
+        padding-top:20px;
+    }
+
+    .image-radius
+    {
+        width:40px;
+        height:40px;
+        border-radius:4px;
+    }
+
+    .footer_div{
+        text-align:center;
+    }
+
+    .header_line{
+        width:100%;
+        height:5px;
+        background-color:#00aeef;
+    }

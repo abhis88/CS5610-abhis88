@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTML and CSS - Transform</title>
+    <link rel="stylesheet" href="../css/Exp4.css" />
+</head>
+<body>
+    <div class="header_div">
+        <header>
+            <h1>CSS TRICKS EXPERIMENTS</h1>
+            <nav>
+                <a href="../../../Default.aspx">Home</a>
+            </nav>
+            <hr />
+        </header>
+    </div>
+
+    <div class="aim">
+        <h3> Aim of the Experiment</h3>
+        <p>
+            There are various tricks that can be implemented using Cascading Style Sheets (CSS) in HTML pages.
+            Some of those are shown below.
+        </p>
+    </div>
+
+    <!-- ---------------------------- ROTATED DIV EXAMPLE ----------------------------------------- -->
+
+    <div><h4> Rotated Block</h4></div>
+
+    <div class="rotation1">
+        <div class="normal_div1"> I am normal div </div>
+        <div class="rotated_div1"> I am rotated div </div>
+    </div>
+
+    <div class="code_content1">
+        <div><strong> Code Snippet </strong></div>
+        <code>
+            .rotated_div1 {
+            transform: rotate(45deg);
+            }        
+        </code>
+    </div>
+    <!------------------------------ IMAGE 1 ZOOMING EFFECT --------------------------------------->
+
+    <div class="image">
+        <h4> Zooming on Mouse Hover</h4>
+    </div>
+
+    <div class="image_div">
+        <img id="image1" src="../../../images/week1/3.png" />
+    </div>
+  
+    <div class="code_content2">
+        <div><strong> Code Snippet </strong></div>
+        <code>
+            #image1:hover {
+            /*Chrome, IE*/
+            -webkit-transform: scale(1.25,1.25);
+            -webkit-transition-timing-function:;
+            -webkit-transition-duration: 300ms;
+            /*Opera*/
+            -o-transform: scale(1.25,1.25);
+            -o-transition-timing-function: ease-in-out;
+            -o-transition-duration: 300ms;
+            /*Mozilla*/
+            -moz-transform: scale(1.25,1.25);
+            -moz-transition-timing-function: ease-in-out;
+            -moz-transition-duration: 300ms;
+
+            transform: scale(1.25);
+            z-index: 150;
+            }
+        </code>
+    </div>
+
+    <!------------------------------ IMAGE 2 360 ROTATION EFFECT --------------------------------------->
+
+    <div class="image">
+        <h4> 360 degree rotation on Mouse Hover</h4>
+    </div>
+
+    <div class="image_div">
+        <img id="image2" src="../../../images/week1/4.png" />
+    </div>
+
+    <div class="code_content3">
+        <div><strong> Code Snippet </strong></div>
+        <code>
+            #image2 {
+            -webkit-transition-duration: 0.9s;
+            -moz-transition-duration: 0.9s;
+            -o-transition-duration: 0.9s;
+            transition-duration: 0.9s;
+            transition-property: transform;
+            }
+            <hr />
+            #image2:hover {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            }
+        </code>
+    </div>
+    <!------------------------------ IMAGE 1 OPACITY EFFECT --------------------------------------->
+
+    <div class="image">
+        <h4> Opacity Effect on Mouse Hover</h4>
+    </div>
+
+    <div class="image_div">
+        <img id="image3" src="../../../images/week1/5.png" />
+    </div>
+
+    <div class="code_content4">
+        <div><strong> Code Snippet </strong></div>
+        <code>
+            #image3:hover {
+            opacity: 0.5;
+            }
+
+        </code>
+    </div>
+
+    <!-- ---------------------------- VIEW SOURCE FILES ----------------------------------------- -->
+
+    <div class="viewsource">
+        <h4>Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/html/Exp4.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/css/Exp4.css" target="_blank">View CSS Source</a></div>
+    </div>
+
+    <!------------------------------ REFERENCES --------------------------------------->
+
+    <div class="references"><strong>References</strong></div>
+    <ul>
+        <li> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a> </li>
+    </ul>
+
+    <!------------------------------ FOOTER --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Experiments</title>
+    <link rel="stylesheet" href="../css/Exp3.css">
+</head>
+<body>
+
+    <div class="header_div">
+        <header>
+            <h1>CSS EXPERIMENTS</h1>
+            <nav>
+                <a href="../../../Default.aspx">Home</a>
+            </nav>
+            <hr />
+        </header>
+    </div>
+
+    <div class="css_types">
+        There are three ways to implement Cascading Style Sheets (CSS) in HTML pages.
+        <ul>
+            <li> In-Line Style   </li>
+            <li> CSS in head tag </li>
+            <li> Separate CSS file</li>
+        </ul>
+        Out of all three, Separate CSS file is considered as best practice. Its even better to have a separate folder
+        for CSS as a html file can have more than one css.
+    </div>
+
+    <div class="aim">
+        <h3> Aim of the Experiment</h3>
+        <p>
+            The main objective of this experiment was to learn all three aspects of cascading style sheets.
+            Out of all three, Separate CSS file method is universaly recoginzed for its usefullness. Thus after learning the first and
+            second ways to implement CSS, I have shown the third way in this HTML file. I have implemented all of my Experiments using
+            a separate CSS file.
+        </p>
+    </div>
+
+    <div class="sub_heading">
+        Creating three div tags and using CSS to provide its width, height, color etc attributes.
+    </div>
+
+    <div>
+        <center>
+            <div class="left">
+                Left
+            </div>
+            <div class="center">
+                Center
+            </div>
+            <div class="right">
+                Right
+            </div>
+        </center>
+    </div>
+
+    <div class="code_content">
+        <div><strong> Code Snippet </strong></div>
+        <code>
+            .left, .center, .right
+            {
+            width:200px;
+            height:300px;
+            border:1px solid red;
+            <hr />
+
+            .left
+            {
+            float:left;
+            background-color: orange;
+            margin-left:60px;
+            }
+            <hr />
+            .center
+            {
+            float:left;
+            background-color: lightskyblue;
+            margin-left:5px;
+            }
+            <hr />
+            .right
+            {
+            float:left;
+            background-color: lightgreen;
+            margin-left:5px;
+            }
+        </code>
+    </div>
+
+    <!-- ---------------------------- VIEW SOURCE FILES ----------------------------------------- -->
+
+    <div class="viewsource">
+        <h4>Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/html/Exp3.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week1/css/Exp3.css" target="_blank">View CSS Source</a></div>
+    </div>
+
+    <!-- ---------------------------- REFERENCES  ----------------------------------------- -->
+
+    <div class="references"><strong>References</strong></div>
+    <ul>
+        <li> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a> </li>
+    </ul>
+
+    <!------------------------------ FOOTER --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

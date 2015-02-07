@@ -1,0 +1,124 @@
+﻿body {
+}
+
+.header_div {
+    text-align: center;
+}
+
+.rotation1 {
+    border: 1px solid black;
+    width: 320px;
+    height: 180px;
+    background-color: lightgreen;
+    float: left;
+    margin-left: 10px;
+}
+
+.rotated_div1, .normal_div1 {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin-left: 40px;
+    margin-top: 40px;
+    float: left;
+}
+
+
+
+#image1:hover {
+    /*Chrome, IE*/
+    -webkit-transform: scale(1.25,1.25);
+    -webkit-transition-timing-function:;
+    -webkit-transition-duration: 300ms;
+    /*Opera*/
+    -o-transform: scale(1.25,1.25);
+    -o-transition-timing-function: ease-in-out;
+    -o-transition-duration: 300ms;
+    /*Mozilla*/
+    -moz-transform: scale(1.25,1.25);
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition-duration: 300ms;
+
+    transform: scale(1.25);
+    z-index: 150;
+}
+
+.rotated_div1 {
+    transform: rotate(45deg);
+}
+
+.footer_div {
+    padding-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+.references {
+    clear: both;
+    padding-top: 15px;
+}
+
+.image {
+    clear: both;
+    padding-top: 10px;
+    margin-left:10px;
+}
+
+#image2 {
+    -webkit-transition-duration: 0.9s;
+    -moz-transition-duration: 0.9s;
+    -o-transition-duration: 0.9s;
+    transition-duration: 0.9s;
+    transition-property: transform;
+}
+
+    #image2:hover {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+
+#image3:hover {
+    opacity: 0.5;
+}
+
+.code_content1, .code_content2, .code_content3, .code_content4 {
+    float: left;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: lightyellow;
+    padding-top:5px;
+    padding-left:5px;
+}
+
+.code_content1 {
+    width: 330px;
+    height: 70px;
+    margin-left: 180px;
+}
+
+.code_content2, .code_content3, .code_content4 {
+    width: 330px;
+    margin-left: 370px;
+}
+
+.code_content2 {
+    height: 270px;
+}
+
+.code_content3 {
+    height: 220px;
+}
+
+.image_div
+{
+    float:left;
+    margin-left:20px;
+}
+
+.viewsource{
+    clear:both;
+    padding-bottom:20px;
+    padding-top:20px;
+}
