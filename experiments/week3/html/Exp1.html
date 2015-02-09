@@ -69,14 +69,21 @@
         <div class="code_content_1">
             <div class="code"><strong> Code Snippet </strong></div>
 <pre>
-    $(function () {
-     $("#p1").draggable();
-     $("#p2").draggable({
-       grid: [20, 20]
-      })
-     $("#p3").draggable();
-     $(".div1, .div2").draggable();
-    })
+$(function () {
+
+ $("#p1").draggable();
+
+ $("#p2").draggable({
+   grid: [20, 20]
+ });
+
+ $("#p3").draggable();
+
+ $(".div1, .div2").draggable({
+   grid: [20, 20]
+ });
+
+})
 </pre>
         </div>
 
