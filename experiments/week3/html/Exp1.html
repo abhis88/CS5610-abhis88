@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic JQuery (Draggable Objects)</title>
+
+    <link rel="stylesheet" href="../css/Exp1.css" />
+    <link rel="stylesheet" href="../jQueryUI/css/jquery-ui.css" />
+
+    <script src="../jQueryUI/js/jquery.js"></script>
+    <script src="../jQueryUI/js/jquery-ui.js"></script>
+    <script src="../jQueryUI/js/Exp1.js"></script>
+</head>
+
+
+<body>
+    <div class="heading"> Basic JQuery (Draggable Objects)</div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The main objective of this experiment is to learn basics of jQuery. JQuery plays a vital role in the
+            the construction of a webpage. Using JQuery, we can do various calculations, create different alerts,
+            animations, effects etc on a webpage. JQuery is a very vast area. Usually, we need
+            to write different functions for each functionality. Below, I have tried to show draggable features
+            provided by JQuery.
+        </article>
+    </div>
+    <div class="heading_line"></div>
+
+    <div class="left-width">
+
+        <div class="example_heading">
+            Smoothly Draggable Paragraph
+        </div>
+
+        <p id="p1">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+
+        <div class="example_heading">
+            Grid Draggable Paragraph
+        </div>
+
+        <p id="p2">
+            Dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+
+        <div class="example_heading">
+            Smooth Draggable Images
+        </div>
+
+        <p id="p3">
+            <img class="image1" src="../../../images/week3/jquery-modern-logo.jpg" />
+        </p>
+        <div class="example_heading">
+            Grid Draggable Rectangles
+        </div>
+
+
+        <div class="div1"></div>
+        <div class="div2"></div>
+
+
+        <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+
+        <div class="code_content_1">
+            <div class="code"><strong> Code Snippet </strong></div>
+<pre>
+    $(function () {
+     $("#p1").draggable();
+     $("#p2").draggable({
+       grid: [20, 20]
+      })
+     $("#p3").draggable();
+     $(".div1, .div2").draggable();
+    })
+</pre>
+        </div>
+
+        <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+        <div class="example_heading">
+            Source Code
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/html/Exp1.html" target="_blank">View HTML Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/css/Exp1.css" target="_blank">View CSS Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3//jQueryUI/js/Exp1.js" target="_blank">View JS Source</a></div>
+        </div>
+
+        <!-- ---------------------------- References  ----------------------------------------- -->
+
+        <div class="example_heading">
+            References
+            <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+            <div> <a href="https://www.youtube.com/watch?v=eTUstNknCrw" target="_blank">Youtube</a></div>
+        </div>
+
+        <!------------------------------ Footer --------------------------------------->
+    </div>
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
