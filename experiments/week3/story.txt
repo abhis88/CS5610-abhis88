@@ -1,2 +1,3 @@
 ﻿../../story/whatisnext.htm?../experiments/week3/          What is Next?
-html/Exp1.html                                            Simple jQuery Draggable
+html/Exp1.html                                            jQuery Draggable
+html/Exp2.html                                            jQuery Resizable and Draggable
