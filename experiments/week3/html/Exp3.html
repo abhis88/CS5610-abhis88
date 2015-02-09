@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic JQuery (Selectable and Sortable Objects)</title>
+
+    <link rel="stylesheet" href="../css/Exp3.css" />
+    <link rel="stylesheet" href="../jQueryUI/css/jquery-ui.css" />
+
+    <script src="../jQueryUI/js/jquery.js"></script>
+    <script src="../jQueryUI/js/jquery-ui.js"></script>
+    <script src="../jQueryUI/js/Exp3.js"></script>
+</head>
+
+<body>
+    <div class="heading"> Basic JQuery (Selectable and Sortable Objects)</div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The main objective of this experiment is to learn basics of jQuery. JQuery plays a vital role in the
+            the construction of a webpage. Using JQuery, we can do various calculations, create different alerts,
+            animations, effects etc on a webpage. JQuery is a very vast area. Usually, we need
+            to write different functions for each functionality. Below, I have tried to show Selectable and Sortable features
+            provided by JQuery.
+        </article>
+    </div>
+    <div class="heading_line"></div>
+
+    <div class="left-width">
+
+        <div class="example_heading">
+            Selectable Objects
+            <p></p>
+            <ol id="selectable">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+                <li>Item 6</li>
+                <li>Item 7</li>
+            </ol>
+        </div>
+
+        <div class="example_heading">
+            Sortable Objects
+            <p></p>
+            <ul id="sortable">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+                <li>Item 6</li>
+                <li>Item 7</li>
+            </ul>
+        </div>
+
+
+        <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+        <div class="code_content_1">
+            <div class="code"><strong> Code Snippet </strong></div>
+<pre>
+$(function () {
+    <strong>&lt;!-- To enable Select --&gt;</strong>
+    $("#selectable").selectable();
+
+    <strong>&lt;!-- To enable Sort --&gt;</strong>
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+});
+</pre>
+        </div>
+
+        <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+        <div class="example_heading">
+            Source Code
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/html/Exp3.html" target="_blank">View HTML Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/css/Exp3.css" target="_blank">View CSS Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3//jQueryUI/js/Exp3.js" target="_blank">View JS Source</a></div>
+        </div>
+
+        <!-- ---------------------------- References  ----------------------------------------- -->
+
+        <div class="example_heading">
+            References
+            <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+            <div> <a href="http://jqueryui.com/sortable/" target="_blank">JQuery UI</a></div>
+        </div>
+
+        <!------------------------------ Footer --------------------------------------->
+    </div>
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
