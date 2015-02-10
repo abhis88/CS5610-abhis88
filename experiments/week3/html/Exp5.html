@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic JQuery Examples</title>
+
+    <link rel="stylesheet" href="../css/Exp5.css" />
+    <link rel="stylesheet" href="../jQueryUI/css/jquery-ui.css" />
+
+    <script src="../jQueryUI/js/jquery.js"></script>
+    <script src="../jQueryUI/js/jquery-ui.js"></script>
+    <script src="../jQueryUI/js/Exp5.js"></script>
+</head>
+
+<body>
+    <div class="heading"> Basic JQuery Examples </div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The main objective of this experiment is to learn basics of jQuery. JQuery plays a vital role in the
+            the construction of a webpage. Using JQuery, we can do various calculations, create different alerts,
+            animations, effects etc on a webpage. JQuery is a very vast area. Below, I have tried to show some
+            features provided by JQuery.
+        </article>
+    </div>
+    <div class="heading_line"></div>
+
+    <div class="left-width">
+
+        <div class="example_heading">
+            Default Slider
+            <p class="p">This is a slider which can be used for filter purpose.</p>
+            <div id="slider-1"></div>
+        </div>
+
+        <div class="example_heading">
+            Slider with Initial Position
+            <p class="p">This is a slider with initial position which can be used for filter purpose.</p>
+            <div id="slider-2"></div>
+        </div>
+
+        <div class="example_heading">
+            Slider - Use of Range, Min, Max and Values
+            <p class="p">This is a dual-slider which can be used for range, min, max filter purpose.</p>
+            <div id="slider-3"></div>
+        </div>
+
+
+        <div class="example_heading">
+            Slider - Values Display
+            <div id="slider-6"></div>
+            <p>
+                <label for="startvalue">Start:</label>
+                <input type="text" id="startvalue"
+                       style="border:0; color:#b9cd6d; font-weight:bold;">
+            </p>
+            <p>
+                <label for="stopvalue">Stop:</label>
+                <input type="text" id="stopvalue"
+                       style="border:0; color:#b9cd6d; font-weight:bold;">
+            </p>
+            <p>
+                <label for="changevalue">Change:</label>
+                <input type="text" id="changevalue"
+                       style="border:0; color:#b9cd6d; font-weight:bold;">
+            </p>
+            <p>
+                <label for="slidevalue">Slide:</label>
+                <input type="text" id="slidevalue"
+                       style="border:0; color:#b9cd6d; font-weight:bold;">
+            </p>
+        </div>
+
+        <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+        <div class="code_content_1">
+            <div class="code"><strong> Code Snippet </strong></div>
+<pre>
+$(function () {
+
+&lt;!-- Slider --&gt;
+$("#slider-1").slider();
+
+&lt;!-- Slider with initial value--&gt;
+$("#slider-2").slider({
+    value: 60,
+    animate: "slow",
+    orientation: "horizontal"
+});
+
+&lt;!-- Slider min and max value --&gt;
+$("#slider-3").slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [35, 200],
+    slide: function (event, ui) {
+        $("#price").val("$" + ui.values[0] + " - $" + ui.values[1]);
+    }
+});
+
+&lt;!-- Slider with min and max value displayed --&gt;
+$("#slider-6").slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [35, 200],
+    start: function (event, ui) {
+        $("#startvalue")
+            .val("$" + ui.values[0] + " - $" + ui.values[1]);
+    },
+    stop: function (event, ui) {
+        $("#stopvalue")
+            .val("$" + ui.values[0] + " - $" + ui.values[1]);
+    },
+    change: function (event, ui) {
+        $("#changevalue")
+            .val("$" + ui.values[0] + " - $" + ui.values[1]);
+    },
+    slide: function (event, ui) {
+        $("#slidevalue")
+            .val("$" + ui.values[0] + " - $" + ui.values[1]);
+    }
+});
+});
+
+</pre>
+        </div>
+
+        <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+        <div class="example_heading">
+            Source Code
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/html/Exp5.html" target="_blank">View HTML Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/css/Exp5.css" target="_blank">View CSS Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3//jQueryUI/js/Exp5.js" target="_blank">View JS Source</a></div>
+        </div>
+
+        <!-- ---------------------------- References  ----------------------------------------- -->
+
+        <div class="example_heading">
+            References
+            <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+            <div> <a href="http://www.tutorialspoint.com/jqueryui/jqueryui_slider.htm" target="_blank">JQuery UI Slider</a></div>
+        </div>
+
+        <!------------------------------ Footer --------------------------------------->
+    </div>
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
