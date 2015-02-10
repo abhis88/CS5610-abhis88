@@ -11,7 +11,7 @@
     <div id="parent_container">
         <div id="navigation_links">
             <ul class="master_navigation">
-                <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
+                <a href="sitestatistics/" target="_blank"><li>SiteStatistics</li></a>
                 <li><a href="statistics/" target="_blank">Statistics</a></li>
                 <li><a href="source/" target="_blank">Source</a></li>
                 <li><a href="search/" target="_blank">Search</a></li>
@@ -23,7 +23,8 @@
                 <li><a href="blog/" target="_blank">Blog</a></li>
                 <li><a href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a></li>
                 <li><a href="project/project.html" target="_blank">Project</a></li>
-                <li><a href="project/project_documentation.html" target="_blank">Project Documentation</a></li>
+                <li><a href="project/project_documentation.html" target="_blank">Documentation</a></li>
+                <li><a href="https://github.com/abhis88/CS5610-abhis88" target="_blank">Github</a></li>
             </ul>
             <hr />
         </div>
@@ -58,6 +59,9 @@
             </a>
              <a href="https://linkedin.com/in/abhishekkumar12" target="_blank">
                 <img src="images/landing_page/linkdein.jpg" class="image-radius" />
+            </a>
+            <a href="https://github.com/abhis88/CS5610-abhis88" target="_blank">
+                <img src="images/landing_page/github.png" class="image-radius" />
             </a>
         </div>
 

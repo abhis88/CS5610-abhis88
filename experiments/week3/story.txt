@@ -2,3 +2,4 @@
 html/Exp1.html                                            jQuery Draggable
 html/Exp2.html                                            jQuery Resizable and Draggable
 html/Exp3.html                                            jQuery Selectable and Sortable
+html/Exp4.html                                            jQuery AutoComplete, ToolTip, DatePicker and Mouse Coordinates

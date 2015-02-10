@@ -1,0 +1,133 @@
+﻿body {
+    background-image: url("../../../images/week2/background-1.jpg");
+}
+
+.heading {
+    padding-top: 15px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    padding-bottom: 3px;
+    color: crimson;
+}
+
+.heading_line {
+    width: 100%;
+    border: 1px solid darkslategrey;
+}
+
+.sub_heading {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: darkblue;
+    float: left;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.examples {
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 7px;
+    color: teal;
+    float: left;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    clear: both;
+}
+
+.home {
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.sub_heading_article {
+    clear: both;
+    margin-left: 20px;
+    margin-right: 50px;
+    text-align: justify;
+    font-family: font-size:15px;
+    margin-bottom: 10px;
+}
+
+a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: blue;
+    font-size: 12px;
+}
+
+    a:hover {
+        color: red;
+    }
+
+.code_content_1 {
+    clear: both;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: lightyellow;
+    margin-left: 20px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    width: 370px;
+    height: 720px;
+}
+
+.code {
+    padding-bottom: 4px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer_div {
+    padding-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+.left-width {
+    margin-left: 20px;
+}
+
+.example_heading {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: teal;
+    font-size: 17px;
+    clear: both;
+}
+
+#spnCursor{
+    margin-top:10px;
+    margin-left:20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:black;
+    border:1px solid lightgrey;
+    width:200px;
+    height:40px;
+    padding:5px;
+}
+
+p, .d1{
+    font-family:'Times New Roman', Times, serif;
+    font-size:16px;
+    color:black;
+    margin:5px;
+}
+
+.d1{
+    margin:5px;
+}
+
+#tags{
+    margin-left:70px;
+}
+
+#datepicker, #tool{
+    margin-left:6px;
+}

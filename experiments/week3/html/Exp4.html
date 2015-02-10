@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic JQuery Examples</title>
+
+    <link rel="stylesheet" href="../css/Exp4.css" />
+    <link rel="stylesheet" href="../jQueryUI/css/jquery-ui.css" />
+
+    <script src="../jQueryUI/js/jquery.js"></script>
+    <script src="../jQueryUI/js/jquery-ui.js"></script>
+    <script src="../jQueryUI/js/Exp4.js"></script>
+</head>
+
+<body>
+    <div class="heading"> Basic JQuery Examples </div>
+    <div class="heading_line"></div>
+    <div>
+        <header class="sub_heading">Aim of the Experiment</header>
+        <nav class="home"><a href="../../../default.aspx">HOME</a></nav>
+
+        <article class="sub_heading_article">
+            The main objective of this experiment is to learn basics of jQuery. JQuery plays a vital role in the
+            the construction of a webpage. Using JQuery, we can do various calculations, create different alerts,
+            animations, effects etc on a webpage. JQuery is a very vast area. Below, I have tried to show some
+            features provided by JQuery.
+        </article>
+    </div>
+    <div class="heading_line"></div>
+
+    <div class="left-width">
+
+        <div class="example_heading">
+            Mouse Location
+            <p class="p">This shows the location of the mouse.</p>
+            <div id="spnCursor"> </div>
+        </div>
+
+        <div class="example_heading">
+            Auto Complete
+            <div class="d1">This feature enables you to select from the list. <input id="tags"></div>
+        </div>
+
+        <div class="example_heading">
+            Date Picker
+            <div class="d1">This feature enables you to select date from the calendar. <input type="text" id="datepicker"></div>
+        </div>
+
+        <div class="example_heading">
+            Tool Tip
+            <div class="d1">This feature enables you to select date from the calendar. <input type="text" id="tool" title="How are you ?"></div>
+        </div>
+
+        <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+        <div class="code_content_1">
+            <div class="code"><strong> Code Snippet </strong></div>
+<pre>
+
+$(function () {
+$("body").mousemove(function (e) {
+
+<strong>&lt;!-- To get mouse coordinates --&gt;</strong>
+$('#spnCursor').html("X Axis : " + e.pageX +
+                     " Y Axis : " + e.pageY);
+
+var availableTags = [
+                        "ActionScript",
+                        "AppleScript",
+                        "Asp",
+                        "BASIC",
+                        "C",
+                        "C++",
+                        "Clojure",
+                        "COBOL",
+                        "ColdFusion",
+                        "Erlang",
+                        "Fortran",
+                        "Groovy",
+                        "Haskell",
+                        "Java",
+                        "JavaScript",
+                        "Lisp",
+                        "Perl",
+                        "PHP",
+                        "Python",
+                        "Ruby",
+                        "Scala",
+                        "Scheme"
+];
+
+<strong>&lt;!-- To have autocomplete effect --&gt;</strong>
+$("#tags").autocomplete({
+    source: availableTags
+});
+
+<strong>&lt;!-- To allow date pick --&gt;</strong>
+$("#datepicker").datepicker();
+
+<strong>&lt;!-- To enable tooltip --&gt;</strong>
+$("#tool").tooltip();
+})
+});
+
+</pre>
+        </div>
+
+        <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+        <div class="example_heading">
+            Source Code
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/html/Exp4.html" target="_blank">View HTML Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3/css/Exp4.css" target="_blank">View CSS Source</a></div>
+            <div><a href="../../../fileview/Default.aspx?~/experiments/week3//jQueryUI/js/Exp4.js" target="_blank">View JS Source</a></div>
+        </div>
+
+        <!-- ---------------------------- References  ----------------------------------------- -->
+
+        <div class="example_heading">
+            References
+            <div> <a href="http://www.w3schools.com/htmL/" target="_blank">W3 Schools</a></div>
+            <div> <a href="http://jqueryui.com" target="_blank">JQuery UI</a></div>
+        </div>
+
+        <!------------------------------ Footer --------------------------------------->
+    </div>
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
