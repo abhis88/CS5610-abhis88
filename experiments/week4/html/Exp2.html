@@ -2,75 +2,98 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <title>AJAX</title>
+    <title>Angular JS MVC Experiment</title>
 
     <script src="../js/jquery.js"></script>
-    <!--<script src="../js/Exp2.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/Exp2.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/Exp2.css" />
 
 </head>
-<body>
+<body ng-app="firstController">
     <div class="container" id="container">
-        <h1>AJAX Experiment</h1>
+        <h1>Angular JS MVC Experiment</h1>
         <hr />
     </div>
 
     <div class="container">
         <h3>Aim of the Experiment</h3>
-        The aim of the experiment was to demonstrate the AJAX functionality. AJAX stands for Asynchronous JavaScript and XML.
-        AJAX allows us to render the content asynchronously which allows us not to refresh the entire webpage and refresh
-        a particular webpage area. Also it helps webpage to load quickly at the cilent's end.
+        The aim of the experiment was to demonstrate the Angular JS MVC functionality. MVC stands for Model-View-Controller.
+        Angular JS extends HTML with new attributes. Angular JS is perfect for Single Page Applications(SPA's). It is a
+        client side JavaScript framework. Thus in the below example, I would like to show the binding property where
+        changing an attribute will be reflected in real-time on the webpage.
         <hr />
     </div>
 
-    <div class="container">
+    <div class="container" ng-controller="Controller">
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-4 form-inline">
+                <div>
+                    <label for="firstName" class="label-padding">First Name  &nbsp; </label>
+                    <input id="firstName" class="form-control" placeholder="Abhishek" ng-model="employee.firstName">&nbsp;&nbsp;
+                </div>
+                <div>
+                    <label for="lastName" class="label-padding">Last Name  &nbsp; </label>
+                    <input id="lastName" class="form-control" placeholder="Kumar" ng-model="employee.lastName">&nbsp;&nbsp;
+                </div>
+
+                <div>
+                    <label for="county" class="label-padding">County  &emsp; &nbsp;&nbsp;</label>
+                    <input id="county" class="form-control" placeholder="Suffolk" ng-model="employee.county">&nbsp;&nbsp;
+                </div>
+                <div>
+                    <label for="mobile" class="label-padding">Mobile No &nbsp; </label>
+                    <input id="mobile" class="form-control" placeholder="857-234-8869" ng-model="employee.mobile">&nbsp;&nbsp;
+                </div>
+
+                <div>
+                    <label for="address" class="label-padding">Address  &emsp;&nbsp; </label>
+                    <input id="address" class="form-control" placeholder="Huntington Avenue" ng-model="employee.address">&nbsp;&nbsp;
+                </div>
+            </div>
+            <div class="col-xs-6 form-inline">
+                <div>
+                    <label id="opFullName" class=" label-padding">Entered Full Name :</label>
+                    <i><b>{{employee.firstName + " " + employee.lastName}}</b></i>
+                </div>
+
+                <div>
+                    <label id="opCounty" class=" label-padding">Entered County : &nbsp;</label> &nbsp;
+                    <i><b>{{employee.county}}</b></i>
+                </div>
+
+                <div>
+                    <label id="opMobile" class=" label-padding">Entered Mobile No : &nbsp;</label> &nbsp;
+                    <i><b>{{employee.mobile}}</b></i>
+                </div>
+                <div>
+                    <label id="opAddress" class=" label-padding">Entered Address : &nbsp;</label> &nbsp;
+                    <i><b>{{employee.address}}</b></i>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
         <div class="row">
             <div class="col-xs-2"></div>
-            <div class="col-xs-8 form-inline">
-                <label for="title" class="label-padding">Title  &nbsp; </label>
-                <input id="title" class="form-control" placeholder="Lord of the Rings">&nbsp;&nbsp;
-                <button id="getMovies" class="btn btn-primary">Fetch Movie</button>
+            <div class="col-xs-8">
+
+                
             </div>
-            <div class="col-xs-2"></div>
         </div>
+        <hr />
     </div>
 
-    <div class="container">
-        <table class="table table-bordered table-responsive">
-            <tr>
-                <th> Movie Name </th>
-                <th> Release Date</th>
-                <th> Movie Plot </th>
-                <th> Poster </th>
-            </tr>
-            <tbody id="movies">
-                <tr class="template">
-                    <td class="movieName col-xs-2"> Lord of the Rings </td>
-                    <td class="releaseYear col-xs-1"> 20010401 </td>
-                    <td class="plot col-xs-6">
-                        An ancient Ring thought lost for centuries has been found, and through a strange twist
-                        in fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring
-                        is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the
-                        Cracks of Doom in order to destroy it! However he does not go alone. He is joined by
-                        Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir and his three Hobbit friends
-                        Merry, Pippin and Samwise. Through mountains, snow, darkness, forests, rivers and plains,
-                        facing evil and danger at every corner the Fellowship of the Ring must go. Their quest
-                        to destroy the One Ring is the only hope for the end of the Dark Lords reign!
-                    </td>
-                    <td class="col-xs-3"> <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BNTEyMjAwMDU1OV5BMl5BanBnXkFtZTcwNDQyNTkxMw@@._V1_SY317_CR1,0,214,317_AL_.jpg"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
     <div class="container">
         <h4>Code Snippet</h4>
-        I have written a js file where on the click of the button, I am calling a function which in turn takes
-        input from the input box with id #title. The link returns the response. After receving response we
-        call a function called renderMovies which iterates over the response and prints.
+        I have implemented the MVC architecture. Here we have a Model and a Controller. Controller acts as
+        a database for the Model. Scope is the scope of the controller.
     </div>
 
     <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
@@ -78,50 +101,36 @@
     <div class="container">
 
         <pre>
-    $(function () {
-     $("#getMovies").click(function () {
-       var title = $("#title").val();
-       $.ajax({
-       url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",
-       dataType: "jsonp",
-       success: renderMovies
-       });
-     });
-    });
-    
-    function renderMovies(movies) {
-     var parent = $("#movies");
-     var template = parent.find(".template");
-     parent.empty();
-     for (var m in movies) {
-      var movie = movies[m];
-      var title = movie.title;
-      var year = movie.releaseDate;
-      var plot = movie.plot;
-      var urlPoster = movie.urlPoster;
-      var entity = template.clone();
-      entity.find(".movieName").html(title);
-      entity.find(".releaseYear").html(year);
-      entity.find(".plot").html(plot);
-      entity.find(".poster").attr("src", urlPoster);
-      parent.append(entity);
-     }
-    }   
+var app = angular.module("firstController", [])
+app.controller("Controller",
+    function ($scope) {
+        var employee = {
+            firstName: "",
+            lastName: "",
+            mobile: "",
+            county: "",
+            address:"",
+        };
+    $scope.employee = employee;
+});
     </pre>
-
-        <!-- ---------------------------- View Source Files ----------------------------------------- -->
-
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
         <h4> Source Code </h4>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp1.html" target="_blank">View HTML Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp1.css" target="_blank">View CSS Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp1.js" target="_blank">View JS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp2.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp2.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp2.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
 
+    <!-- ---------------------------- References  ----------------------------------------- -->
 
-        <!-- ---------------------------- References  ----------------------------------------- -->
-
+    <div class="container">
         <h4>References</h4>
-        <div> <a href="http://www.w3schools.com/ajax/" target="_blank">W3 Schools AJAX</a></div>
-        <div> <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs" target="_blank">Prof. Jose Youtube Channel</a></div>
+        <div> <a href="http://www.w3schools.com/angular/" target="_blank">W3 Schools Angular JS</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc" target="_blank">Prof. Jose Youtube Channel</a></div>
     </div>
 
     <!------------------------------ Footer --------------------------------------->
