@@ -1,0 +1,60 @@
+﻿#title{
+    width:60%;
+}
+
+.table{
+    margin-top:50px;
+}
+
+h1{
+    text-align:center;
+    color:#610B0B;
+}
+
+h3{
+    color:teal;
+}
+
+.footer_div {
+    padding-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+pre{
+    margin-top:10px;
+    width:38%;
+    height:20%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+
+.label-padding, .form-control{
+    padding:14px;
+}
+
+
+#col-xs-4{
+    border:2px solid red;
+    padding:15px;
+    border-radius:5px;
+    background-color:lightgoldenrodyellow;
+}
+
+.btn {
+    width: 3.5em;
+    height: 2.7em;
+    margin-top: 15px;
+    margin-left:10px;
+    font-size:20px;
+}
+
+.btn-div{
+    text-align:center;
+}
+
+.result{
+    font-weight:bold;
+    margin-top:25px;
+    text-align:center;
+}

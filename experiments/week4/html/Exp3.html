@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS Calculator</title>
+
+    <script src="../js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/Exp3.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/Exp3.css" />
+</head>
+
+<body ng-app="cal">
+    <div class="container" id="container">
+        <h1>Angular JS Calculator</h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment was to demonstrate the Calulator using Angular JS MVC functionality. MVC stands for Model-View-Controller.
+        Angular JS extends HTML with new attributes. Angular JS is perfect for Single Page Applications(SPA's). It is a
+        client side JavaScript framework. Thus in the below example, I would like to show the calculations using Angular JS.
+        <hr />
+    </div>
+
+    <div class="container" ng-controller="Controller-Cal">
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div id="col-xs-4" class="col-xs-4 form-inline">
+
+                <div>
+                    <label for="input1" class="label-padding">Input 1 &nbsp; </label>
+                    <input id="input1" class="form-control" placeholder="0" ng-model="input1">&nbsp;&nbsp;
+                </div>
+
+                <div>
+                    <label for="input2" class="label-padding">Input 2  &nbsp; </label>
+                    <input id="input2" class="form-control" placeholder="0" ng-model="input2">&nbsp;&nbsp;
+                </div>
+
+                <div class="btn-div">
+                    <button class="btn btn-success" ng-click="sum()">+</button>
+                    <button class="btn btn-success" ng-click="minus()">-</button>
+                    <button class="btn btn-success" ng-click="multiply()">*</button>
+                    <button class="btn btn-success" ng-click="divide()">/</button>
+                </div>
+
+                <div class="result">
+                    Result: <label ng-bind="result" class="label-padding">0</label>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div class="container">
+        <h4>Code Snippet</h4>
+        I have implemented the Calculator using Angular JS MVC architecture. Here I have a Model and a Controller. 
+        Controller acts as a database for the Model. Scope is the scope of the controller. I have taken two input field
+        with name input1 and input2 and termed them as models. Then in the Exp3.js file I have written mulitple functions
+        which is called on button clicks and perfomrs the required operation.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+
+        <pre>
+var app = angular.module("cal", [])
+
+app.controller("Controller-Cal", function ($scope) {
+    $scope.sum = function () {
+        var i1 = $scope.input1;
+        var i2 = $scope.input2;
+        $scope.result = parseInt(i1) + parseInt(i2);
+    }
+    $scope.minus = function () {
+        var i1 = $scope.input1;
+        var i2 = $scope.input2;
+        $scope.result = parseInt(i1) - parseInt(i2);
+    }
+    $scope.multiply = function () {
+        var i1 = $scope.input1;
+        var i2 = $scope.input2;
+        $scope.result = parseInt(i1) * parseInt(i2);
+    }
+    $scope.divide = function () {
+        var i1 = $scope.input1;
+        var i2 = $scope.input2;
+        $scope.result = parseInt(i1) / parseInt(i2);
+    }
+});
+    </pre>
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp3.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp3.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp3.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://www.w3schools.com/angular/" target="_blank">W3 Schools Angular JS</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>

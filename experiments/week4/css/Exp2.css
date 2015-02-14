@@ -15,14 +15,6 @@ h3{
     color:teal;
 }
 
-.code_wrapper {    
-    border: 1px solid red;
-    border-radius: 5px;
-    background-color: lightyellow;
-    width: 560px;
-    height: 360px;
-}
-
 .footer_div {
     padding-top: 15px;
     clear: both;
