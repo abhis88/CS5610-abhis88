@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>AJAX</title>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/Exp1.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/Exp1.css" />
+
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>AJAX Experiment</h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment was to demonstrate the AJAX functionality. AJAX stands for Asynchronous JavaScript and XML.
+        AJAX allows us to render the content asynchronously which allows us not to refresh the entire webpage and refresh
+        a particular webpage area. Also it helps webpage to load quickly at the cilent's end. Below is the example, here
+        you need to type the title of the movie and on the button click and AJAX call will render the requested movie details.
+        <hr />
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8 form-inline">
+                <label for="title" class="label-padding">Title  &nbsp; </label>
+                <input id="title" class="form-control" placeholder="Lord of the Rings">&nbsp;&nbsp;
+                <button id="getMovies" class="btn btn-primary">Fetch Movie</button>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <th> Movie Name </th>
+                <th> Release Date</th>
+                <th> Movie Plot </th>
+                <th> Poster </th>
+            </tr>
+            <tbody id="movies">
+                <tr class="template">
+                    <td class="movieName col-xs-2"> Lord of the Rings </td>
+                    <td class="releaseYear col-xs-1"> 20010401 </td>
+                    <td class="plot col-xs-6">
+                        An ancient Ring thought lost for centuries has been found, and through a strange twist
+                        in fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring
+                        is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the
+                        Cracks of Doom in order to destroy it! However he does not go alone. He is joined by
+                        Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir and his three Hobbit friends
+                        Merry, Pippin and Samwise. Through mountains, snow, darkness, forests, rivers and plains,
+                        facing evil and danger at every corner the Fellowship of the Ring must go. Their quest
+                        to destroy the One Ring is the only hope for the end of the Dark Lords reign!
+                    </td>
+                    <td class="col-xs-3"> <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BNTEyMjAwMDU1OV5BMl5BanBnXkFtZTcwNDQyNTkxMw@@._V1_SY317_CR1,0,214,317_AL_.jpg"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        I have written a js file where on the click of the button, I am calling a function which in turn takes
+        input from the input box with id #title. The link returns the response. After receving response we
+        call a function called renderMovies which iterates over the response and prints.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+
+        <pre>
+    $(function () {
+     $("#getMovies").click(function () {
+       var title = $("#title").val();
+       $.ajax({
+       url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",
+       dataType: "jsonp",
+       success: renderMovies
+       });
+     });
+    });
+    
+    function renderMovies(movies) {
+     var parent = $("#movies");
+     var template = parent.find(".template");
+     parent.empty();
+     for (var m in movies) {
+      var movie = movies[m];
+      var title = movie.title;
+      var year = movie.releaseDate;
+      var plot = movie.plot;
+      var urlPoster = movie.urlPoster;
+      var entity = template.clone();
+      entity.find(".movieName").html(title);
+      entity.find(".releaseYear").html(year);
+      entity.find(".plot").html(plot);
+      entity.find(".poster").attr("src", urlPoster);
+      parent.append(entity);
+     }
+    }   
+    </pre>
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">   
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp1.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp1.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp1.js" target="_blank">View JS Source</a></div>
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://www.w3schools.com/ajax/" target="_blank">W3 Schools AJAX</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs" target="_blank">Prof. Jose Youtube Channel</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
