@@ -24,6 +24,11 @@ app.controller("Product-Controller", function ($scope) {
         $scope.products.push(newProduct);
     }
 
+    $scope.selectProduct = function (product) {
+
+        $scope.product = product;
+    }
+
     $scope.removeproduct = function (product) {
         var index = $scope.products.indexOf(product);
         $scope.products.splice(index, 1);

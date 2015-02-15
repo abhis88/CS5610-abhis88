@@ -23,7 +23,7 @@
         <h3>Aim of the Experiment</h3>
         The aim of the experiment was to demonstrate the usefullness of MVC architecture. Angular JS is perfect for Single
         Page Applications(SPA's). It is a client side JavaScript framework. Thus in the below example, I would like to show
-        the filtering using Angular JS. In the below example you can add a row or delete a row from existing rows on a fly.
+        the filtering using Angular JS. In the below example you can add, edit or delete a row from existing rows on a fly.
         <hr />
     </div>
 
@@ -59,6 +59,11 @@
                             <td>{{product.publisher}}</td>
                             <td>{{product.price}}</td>
                             <td>
+                                <button class="btn btn-warning" ng-click="selectProduct(product)">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>                                
+                            </td>
+                            <td>
                                 <button class="btn btn-danger" ng-click="removeproduct(product)">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </button>
@@ -73,21 +78,12 @@
         <hr />
     </div>
 
-
-
-
-
-
-
-
-
-
     <div class="container">
         <h4>Code Snippet</h4>
         I have implemented the above using Angular JS MVC architecture. Here I have a Model, View and a Controller.
         Scope is the scope of the controller. In this example, you can add a new row to the existing row. Also, you
         can delete an existing row. This happens because of the binding of objects between controller, model and view.
-        Also, I have writtern two function, one to add row and one to remove row.
+        Also, I have writtern three function, one to add row, one to edit row and one to remove row.
     </div>
 
     <!-- ---------------------------- Code Content 1 ----------------------------------------- -->

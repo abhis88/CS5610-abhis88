@@ -1,0 +1,23 @@
+﻿
+<!DOCTYPE html>
+<html data-ng-app>
+<head>
+    <title>Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+</head>
+<body ng-init="people=[{name:'Juhi Paralkar', city: 'Mumbai'}, {name: 'Omkar', city: 'San Diego'}, {name: 'Juhi', city: 'Boston'}, {name: 'Omkar Sambhus', city: 'Mumbai'}]">
+    
+    Search:
+    <input type="text" data-ng-model="name" /> {{ name }}
+
+    <ul>
+        <li data-ng-repeat="person in people | filter: name | orderBy: 'city'"> {{ person.name }} - {{ person.city }}
+    </ul>
+
+    <hr />
+
+    View source: <a href="../fileview/Default.aspx?~/experiments/experiment7.html" target="_blank">...source</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    References: <a href="http://www.angularjs.org" target="_blank">ANGULARJS</a>
+
+</body>
+</html>

@@ -1,23 +1,135 @@
-﻿
-<!DOCTYPE html>
-<html data-ng-app>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Angular JS</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <title>Angular JS Application</title>
+
+    <script src="../js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../js/Exp5.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/Exp5.css" />
 </head>
-<body ng-init="people=[{name:'Juhi Paralkar', city: 'Mumbai'}, {name: 'Omkar', city: 'San Diego'}, {name: 'Juhi', city: 'Boston'}, {name: 'Omkar Sambhus', city: 'Mumbai'}]">
-    
-    Search:
-    <input type="text" data-ng-model="name" /> {{ name }}
 
-    <ul>
-        <li data-ng-repeat="person in people | filter: name | orderBy: 'city'"> {{ person.name }} - {{ person.city }}
-    </ul>
+<body ng-app="FilterApp">
+    <div class="container" id="container">
+        <h1>Angular JS Application</h1>
+        <hr />
+    </div>
 
-    <hr />
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment was to demonstrate the Calulator using Angular JS MVC functionality. MVC stands for Model-View-Controller.
+        Angular JS extends HTML with new attributes. Angular JS is perfect for Single Page Applications(SPA's). It is a
+        client side JavaScript framework. Thus in the below example, I would like to show the calculations using Angular JS.
+        <hr />
+    </div>
 
-    View source: <a href="../fileview/Default.aspx?~/experiments/experiment7.html" target="_blank">...source</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    References: <a href="http://www.angularjs.org" target="_blank">ANGULARJS</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10" ng-controller="FilterController">
+
+                <h4 class="form-inline"> Search : &nbsp; <input placeholder="Enter Player Name" ng-model="player.name" class="form-control" /> </h4>
+                <hr />
+
+                <h3>Normal filter demo</h3>
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Club</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="player in players | filter:player:strict">
+                        <tr>
+                            <td>{{player.name}}</td>
+                            <td>{{player.club}}</td>
+                            <td>{{player.country}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Startswith filter demo</h3>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Club</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="player in players | filter:player:firstLetter">
+                        <tr>
+                            <td>{{player.name}}</td>
+                            <td>{{player.club}}</td>
+                            <td>{{player.country}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        I have implemented the Calculator using Angular JS MVC architecture. Here I have a Model and a Controller.
+        Controller acts as a database for the Model. Scope is the scope of the controller. I have taken two input field
+        with name input1 and input2 and termed them as models. Then in the Exp3.js file I have written mulitple functions
+        which is called on button clicks and perfomrs the required operation.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+
+        <pre>
+var app = angular.module('FilterApp', []);
+
+app.controller("FilterController", function ($scope) {
+    $scope.players = [
+        { name: "Sachin Ramesh Tendulkar", club: "Mumbai Indians", country: "India" },
+        { name: "Yuvraj Singh", club: "Kingfisher XI", country: "India" },
+        { name: "ICC World Cup", club: "ICC", country: "World" },
+        { name: "Steave Smith", club: "ICC", country: "Australia" }
+    ];
+    $scope.firstLetter = function (provided, expected) {
+        return (provided + "").toLowerCase().indexOf(expected.toLowerCase()) === 0;
+    };
+});
+
+    </pre>
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp5.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp5.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp5.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://www.w3schools.com/angular/" target="_blank">W3 Schools Angular JS</a></div>
+        <div> <a href="http://net4.ccs.neu.edu/home/naveen17/experiments/angular/experiment2/Default.aspx" target="_blank"> Old Scripts </a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
 
 </body>
 </html>
