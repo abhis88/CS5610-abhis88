@@ -1,0 +1,26 @@
+﻿#title{
+    width:60%;
+}
+
+h1{
+    text-align:center;
+    color:#610B0B;
+}
+
+h3{
+    color:teal;
+}
+
+.footer_div {
+    padding-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+pre{
+    margin-top:10px;
+    width:90%;
+    height:20%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
