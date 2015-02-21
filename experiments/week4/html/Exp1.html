@@ -43,15 +43,15 @@
         <table class="table table-bordered table-responsive">
             <tr>
                 <th> Movie Name </th>
-                <th> Release Date</th>
+                <th> Year</th>
                 <th> Movie Plot </th>
-                <th> Poster </th>
+                <th> More Details </th>
             </tr>
             <tbody id="movies">
                 <tr class="template">
                     <td class="movieName col-xs-2"> Lord of the Rings </td>
-                    <td class="releaseYear col-xs-1"> 20010401 </td>
-                    <td class="plot col-xs-6">
+                    <td class="releaseYear col-xs-1"> 2001 </td>
+                    <td class="plot col-xs-7">
                         An ancient Ring thought lost for centuries has been found, and through a strange twist
                         in fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring
                         is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the
@@ -61,7 +61,11 @@
                         facing evil and danger at every corner the Fellowship of the Ring must go. Their quest
                         to destroy the One Ring is the only hope for the end of the Dark Lords reign!
                     </td>
-                    <td class="col-xs-3"> <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BNTEyMjAwMDU1OV5BMl5BanBnXkFtZTcwNDQyNTkxMw@@._V1_SY317_CR1,0,214,317_AL_.jpg"></td>
+                    <td class="change_a col-xs-2">
+                        <a class="poster" target="_blank" href="http://www.imdb.com/title/tt0120737/">
+                            <h5>Open in IMDB</h5>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -79,45 +83,55 @@
     <div class="container">
 
         <pre>
-    $(function () {
-     $("#getMovies").click(function () {
-       var title = $("#title").val();
-       $.ajax({
-       url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",
+$(function () {
+  $("#getMovies").click(function () {
+    var title = $("#title").val();
+    $.ajax({
+       url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0
+             &business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0
+             &limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0
+             &filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0
+             &movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",
        dataType: "jsonp",
        success: renderMovies
-       });
-     });
     });
-    
-    function renderMovies(movies) {
-     var parent = $("#movies");
-     var template = parent.find(".template");
-     parent.empty();
-     for (var m in movies) {
-      var movie = movies[m];
-      var title = movie.title;
-      var year = movie.releaseDate;
-      var plot = movie.plot;
-      var urlPoster = movie.urlPoster;
-      var entity = template.clone();
-      entity.find(".movieName").html(title);
-      entity.find(".releaseYear").html(year);
-      entity.find(".plot").html(plot);
-      entity.find(".poster").attr("src", urlPoster);
-      parent.append(entity);
-     }
-    }   
+  });
+});
+
+function renderMovies(movies) {
+    var parent = $("#movies");
+    var template = parent.find(".template");
+    parent.empty();
+    for (var m in movies) {
+        var movie = movies[m];
+        var title = movie.title;
+        var year = movie.year;
+        var plot = movie.plot;
+        var idIMDB = movie.idIMDB;
+        var entity = template.clone();
+        if (plot == "") {
+            entity.find(".plot").html("Plot Not Fould");
+        } else {
+            entity.find(".plot").html(plot);
+        }
+        entity.find(".movieName").html(title);
+        entity.find(".releaseYear").html(year);
+        entity.find(".poster").attr("href", "http://www.imdb.com/title/" + idIMDB + "/");
+        parent.append(entity);
+    }
+}
     </pre>
+        <hr />
     </div>
 
     <!-- ---------------------------- View Source Files ----------------------------------------- -->
 
-    <div class="container">   
+    <div class="container">
         <h4> Source Code </h4>
         <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp1.html" target="_blank">View HTML Source</a></div>
         <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp1.css" target="_blank">View CSS Source</a></div>
         <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp1.js" target="_blank">View JS Source</a></div>
+        <hr />
     </div>
 
     <!-- ---------------------------- References  ----------------------------------------- -->

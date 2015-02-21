@@ -22,15 +22,20 @@ function renderMovies(movies) {
 
         var movie = movies[m];
         var title = movie.title;
-        var year = movie.releaseDate;
+        var year = movie.year;
         var plot = movie.plot;
-        var urlPoster = movie.urlPoster;
+        var idIMDB = movie.idIMDB;
         var entity = template.clone();
+
+        if (plot == "") {
+            entity.find(".plot").html("Plot Not Fould");
+        } else {
+            entity.find(".plot").html(plot);
+        }
 
         entity.find(".movieName").html(title);
         entity.find(".releaseYear").html(year);
-        entity.find(".plot").html(plot);
-        entity.find(".poster").attr("src", urlPoster);
+        entity.find(".poster").attr("href", "http://www.imdb.com/title/" + idIMDB + "/");
         parent.append(entity);
     }
 }
