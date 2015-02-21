@@ -18,10 +18,10 @@ app.controller("Product-Controller", function ($scope) {
         var count = $scope.favouriteProducts.length;
 
         if (count > 0) {
-            alert(count + " Favourite Movies uploaded successfully.")
+            alert(count + " Favourite Books uploaded successfully.")
         }
         else {
-            alert("No Favourite Movies to be uploaded.")
+            alert("No Favourite Books to be uploaded.")
         }
 
     }

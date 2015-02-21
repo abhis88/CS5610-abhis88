@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Angular JS Add/Edit/Delete</title>
+    <title>Angular JS Dynamic Data Experiment</title>
 
     <script src="../../../javascript/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="Exp3.css" />
 </head>
 
-<body ng-app="ProductApp">
+<body ng-app="MovieApp">
     <div class="container" id="container">
-        <h1>Angular JS Experiment </h1>
+        <h1>Angular JS Dynamic Data Experiment </h1>
         <hr />
     </div>
 
@@ -23,36 +23,39 @@
         <h3>Aim of the Experiment</h3>
         The aim of the experiment was to demonstrate the usefullness of Angular JS MVC architecture. Angular JS is perfect for Single
         Page Applications(SPA's). It is a client side JavaScript framework. Thus in the below example, I would like to show
-        the filtering using Angular JS. In the below example you can add, edit or delete a row from existing rows on a fly.
-        Also you can add your books under favourite category. There is a upload button which shows whether the book in uploaded
-        sucessfully to the database (dummy) or not.
+        the Dynamic content using Angular JS. In the below example you search any movie name. Based on your input, a list of movies
+        will appear. You can add those movies to your favourite list. Also you can manually add, edit or delete a row from existing rows
+        on a fly. There is a upload button which shows whether the book in uploaded sucessfully to the database (dummy) or not.
         <hr />
     </div>
 
     <div class="container">
         <div class="angular_border">
-            <div class="container" ng-controller="Product-Controller">
+            <div class="container" ng-controller="Movie-Controller">
                 <div class="row">
-                    <div class="col-xs-1"></div>
-                    <div class="col-xs-10">
+
+                    <div class="col-xs-11">
                         <h3 class="text-center">
-                            Purchase Books
+                            Search Movies and choose your Favourite Movies
                             <hr />
                         </h3>
-
+                        <div class="form-inline text-center">
+                            <input class="form-control" ng-model="searchByTitle" />
+                            <button class="btn btn-warning" ng-click="searchMovies()"> Search</button>
+                        </div>
                         <h4>
-                            Favourite Books
+                            Favourite Movies
                         </h4>
 
                         <table class="table table-stripped">
                             <tbody>
-                                <tr ng-repeat="product in favouriteProducts">
-                                    <td>{{product.name}}</td>
-                                    <td>{{product.language}}</td>
-                                    <td>{{product.publisher}}</td>
-                                    <td>{{product.price}}</td>
+                                <tr ng-repeat="movie in favouriteMovies">
+                                    <td>{{movie.title}}</td>
+                                    <td>{{movie.year}}</td>
+                                    <td>{{movie.plot}}</td>
+                                    <td>{{movie.rating}}</td>
                                     <td>
-                                        <button class="btn btn-danger" ng-click="removeFavouriteProduct(product)">
+                                        <button class="btn btn-danger" ng-click="removeFavouriteMovie(movie)">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
@@ -62,24 +65,24 @@
 
 
                         <h4 class="text-center">
-                            Add/Edit/Delete Books from below to Favourites
+                            Add/Edit/Delete Movies from below to Favourites
                         </h4>
                         <table class="table table-stripped">
                             <thead>
                                 <tr class="heading_color">
-                                    <th>Name</th>
-                                    <th>Language</th>
-                                    <th>Publisher</th>
-                                    <th>Price</th>
+                                    <th>Title</th>
+                                    <th>Year</th>
+                                    <th>Plot</th>
+                                    <th>Rating</th>
                                     <th>&nbsp;</th>
                                 </tr>
                                 <tr>
-                                    <th><input class="form-control input_color" ng-model="product.name" placeholder="Three Mistakes of My Life" /></th>
-                                    <th><input class="form-control input_color" ng-model="product.language" placeholder="English, Hindi" /></th>
-                                    <th><input class="form-control input_color" ng-model="product.publisher" placeholder="Princeton Publication" /></th>
-                                    <th><input class="form-control input_color" ng-model="product.price" placeholder="$ 78" /></th>
+                                    <th><input class="form-control input_color" ng-model="movie.title" /></th>
+                                    <th><input class="form-control input_color" ng-model="movie.year" /></th>
+                                    <th><input class="form-control input_color" ng-model="movie.plot" /></th>
+                                    <th><input class="form-control input_color" ng-model="movie.Rating" /></th>
                                     <th>
-                                        <button class="btn btn-success" ng-click="addproduct()">
+                                        <button class="btn btn-success" ng-click="addMovie()">
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
                                     </th>
@@ -91,23 +94,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="product in products">
-                                    <td>{{product.name}}</td>
-                                    <td>{{product.language}}</td>
-                                    <td>{{product.publisher}}</td>
-                                    <td>{{product.price}}</td>
+                                <tr ng-repeat="movie in movies">
+                                    <td>{{movie.title}}</td>
+                                    <td>{{movie.year}}</td>
+                                    <td>{{movie.plot}}</td>
+                                    <td>{{movie.rating}}</td>
                                     <td>
-                                        <button class="btn btn-warning" ng-click="selectProduct(product)">
+                                        <button class="btn btn-warning" ng-click="selectMovie(movie)">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-info" ng-click="addToFavourite(product)">
+                                        <button class="btn btn-info" ng-click="addToFavourite(movie)">
                                             <span class="glyphicon glyphicon-star"></span>
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger" ng-click="removeproduct(product)">
+                                        <button class="btn btn-danger" ng-click="removeMovie(movie)">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
@@ -116,7 +119,7 @@
                         </table>
 
                     </div>
-                    <div class="col-xs-1"></div>
+
                 </div>
             </div>
         </div>
@@ -126,9 +129,10 @@
     <div class="container">
         <h4>Code Snippet</h4>
         I have implemented the above using Angular JS MVC architecture. Here I have a Model, View and a Controller.
-        Scope is the scope of the controller. In this example, you can add a new row to the existing row. Also, you
+        Scope is the scope of the controller. In this example, you can fetch any movie list using search options.
+        Then you can add it to your favourite. Also, you
         can delete an existing row. This happens because of the binding of objects between controller, model and view.
-        Also, I have writtern many function for individual tasks. You can also add your favourite books to the favourite
+        Also, I have writtern many function for individual tasks. You can also add your favourite movies to the favourite
         category and can upload the content to database (dummy). Below is the App code.
     </div>
 
@@ -136,72 +140,72 @@
 
     <div class="container">
         <pre>
-var app = angular.module("ProductApp", []);
+var app = angular.module("MovieApp", []);
 
-app.controller("Product-Controller", function ($scope) {
-    $scope.favouriteProducts = [];
-
-   <strong> &lt;!-- Function to Add product as Favourite --&gt;</strong>
-    $scope.addToFavourite = function (product) {
-        $scope.favouriteProducts.push(product)
-    }
-
-   <strong> &lt;!-- Function to remove product as Favourite --></strong>
-    $scope.removeFavouriteProduct = function (product) {
-        var index = $scope.favouriteProducts.indexOf(product);
-        $scope.favouriteProducts.splice(index, 1);
-    }
-
-   <strong> &lt;!-- Function to Show alert messege --&gt;</strong>
-    $scope.databaseCall = function () {
-        var count = $scope.favouriteProducts.length;
-        if (count > 0) {
-            alert(count + " Favourite Movies uploaded successfully.")
+app.controller("Movie-Controller",
+    function ($scope, $http) {
+        var movies = [];
+        
+       <strong>&lt;!-- Function to search movies --&gt;</strong>
+        $scope.searchMovies = function () {
+            var title = $scope.searchByTitle;
+            $http.jsonp("http://www.myapifilms.com/imdb?title=" + title + "
+                        &format=JSONP&aka=0&business=0&seasons=0&seasonYear=0
+                        &technical=0&filter=N&exactFilter=0&limit=10&lang=en-us
+                        &actors=N&biography=0&trailer=0&uniqueName=0&filmography=0
+                        &bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0
+                        &awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK")
+            .success(function (response) {
+                $scope.movies = response;
+            })
         }
-        else {
-            alert("No Favourite Movies to be uploaded.")
+        $scope.favouriteMovies = [];
+
+       <strong>&lt;!-- Function to add movies to favourite--&gt;</strong>
+        $scope.addToFavourite = function (movie) {
+            $scope.favouriteMovies.push(movie)
         }
-    }
-   
-   <strong> &lt;!--Data Stored in products variable as an Array --&gt;</strong>
-    var products = [
-        { name: "Awful Auntie", language: "English", 
-          publisher: "HarperCollins Publishers", price: "$ 275" },
-        { name: "The Red Sari (A Novel)", language: "English", 
-          publisher: "Grupo Planeta", price: "$ 280" },
-        { name: "13 STEPS TO BLOODY GOOD LUCK", language: "English", 
-          publisher: "Westland", price: "$ 80" },
-        { name: "Marry Me, Stranger", language: "English", 
-          publisher: "HarperCollins PublishersRandom House India", price: "$ 70" },
-        { name: "KP: The Autobiography", language: "English", 
-          publisher: "Little, Brown Book Group", price: "$ 429" },
-        { name: "We Were Liars", language: "English", 
-          publisher: "Hot Key Books", price: "$ 86" },
-    ];
-    $scope.products = products;
 
-   <strong> &lt;!-- Function to Add new product --&gt;</strong>
-    $scope.addproduct = function () {
-        var newProduct = {
-            name: $scope.product.name,
-            language: $scope.product.language,
-            publisher: $scope.product.publisher,
-            price: $scope.product.price
+       <strong>&lt;!-- Function to remove movies from favourite --&gt;</strong>
+        $scope.removeFavouriteMovie = function (movie) {
+            var index = $scope.favouriteMovies.indexOf(movie);
+            $scope.favouriteMovies.splice(index, 1);
         }
-        $scope.products.push(newProduct);
-    }
 
-   <strong> &lt;!-- Function to Select a product to edit --&gt;</strong>
-    $scope.selectProduct = function (product) {
-        $scope.product = product;
-    }
+       <strong>&lt;!-- Function to call database(dummy) --&gt;</strong>
+        $scope.databaseCall = function () {
+            var count = $scope.favouriteMovies.length;
+            if (count > 0) {
+                alert(count + " Favourite Movies uploaded successfully.")
+            }
+            else {
+                alert("No Favourite Movies to be uploaded.")
+            }
+        }
+        $scope.movies = movies;
 
-   <strong> &lt;!-- Function to remove product --&gt;</strong>
-    $scope.removeproduct = function (product) {
-        var index = $scope.products.indexOf(product);
-        $scope.products.splice(index, 1);
-    }
-});
+       <strong>&lt;!-- Function to add movies manually --&gt;</strong>
+        $scope.addMovie = function () {
+            var newMovie = {
+                title: $scope.movie.title,
+                year: $scope.movie.year,
+                plot: $scope.movie.plot,
+                rating: $scope.movie.rating
+            }
+            $scope.movies.push(newMovie);
+        }
+
+       <strong>&lt;!-- Function to select movies --&gt;</strong>
+        $scope.selectMovie = function (movie) {
+            $scope.movie = movie;
+        }
+
+       <strong>&lt;!-- Function to remove movies --&gt;</strong>
+        $scope.removeMovie = function (movie) {
+            var index = $scope.movies.indexOf(movie);
+            $scope.movies.splice(index, 1);
+        }
+    });
     </pre>
         <hr />
     </div>

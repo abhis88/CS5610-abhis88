@@ -1,61 +1,63 @@
-﻿var app = angular.module("ProductApp", []);
+﻿var app = angular.module("MovieApp", []);
 
-app.controller("Product-Controller", function ($scope) {
+app.controller("Movie-Controller",
+    function ($scope, $http) {
 
-    $scope.favouriteProducts = [];
+        var movies = [];
 
-    $scope.addToFavourite = function (product) {
-        $scope.favouriteProducts.push(product)
-    }
+        $scope.searchMovies = function () {
 
-    $scope.removeFavouriteProduct = function (product) {
-        var index = $scope.favouriteProducts.indexOf(product);
-        $scope.favouriteProducts.splice(index, 1);
-    }
+            var title = $scope.searchByTitle;
 
-    $scope.databaseCall = function () {
-
-        var count = $scope.favouriteProducts.length;
-
-        if (count > 0) {
-            alert(count + " Favourite Movies uploaded successfully.")
-        }
-        else {
-            alert("No Favourite Movies to be uploaded.")
+            $http.jsonp("http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK")
+            .success(function (response) {
+                $scope.movies = response;
+            })
         }
 
-    }
+        $scope.favouriteMovies = [];
 
-    var products = [
-        { name: "Awful Auntie", language: "English", publisher: "HarperCollins Publishers", price: "$ 275" },
-        { name: "The Red Sari (A Novel)", language: "English", publisher: "Grupo Planeta", price: "$ 280" },
-        { name: "13 STEPS TO BLOODY GOOD LUCK", language: "English", publisher: "Westland", price: "$ 80" },
-        { name: "Marry Me, Stranger", language: "English", publisher: "HarperCollins PublishersRandom House India", price: "$ 70" },
-        { name: "KP: The Autobiography", language: "English", publisher: "Little, Brown Book Group", price: "$ 429" },
-        { name: "We Were Liars", language: "English", publisher: "Hot Key Books", price: "$ 86" },
-    ];
-
-    $scope.products = products;
-
-    $scope.addproduct = function () {
-        var newProduct = {
-            name: $scope.product.name,
-            language: $scope.product.language,
-            publisher: $scope.product.publisher,
-            price: $scope.product.price
+        $scope.addToFavourite = function (movie) {
+            $scope.favouriteMovies.push(movie)
         }
 
-        $scope.products.push(newProduct);
-    }
+        $scope.removeFavouriteMovie = function (movie) {
+            var index = $scope.favouriteMovies.indexOf(movie);
+            $scope.favouriteMovies.splice(index, 1);
+        }
 
-    $scope.selectProduct = function (product) {
-        $scope.product = product;
-    }
+        $scope.databaseCall = function () {
 
-    $scope.removeproduct = function (product) {
-        var index = $scope.products.indexOf(product);
-        $scope.products.splice(index, 1);
-    }
+            var count = $scope.favouriteMovies.length;
 
+            if (count > 0) {
+                alert(count + " Favourite Movies uploaded successfully.")
+            }
+            else {
+                alert("No Favourite Movies to be uploaded.")
+            }
 
-});
+        }
+
+        $scope.movies = movies;
+
+        $scope.addMovie = function () {
+            var newMovie = {
+                title: $scope.movie.title,
+                year: $scope.movie.year,
+                plot: $scope.movie.plot,
+                rating: $scope.movie.rating
+            }
+
+            $scope.movies.push(newMovie);
+        }
+
+        $scope.selectMovie = function (movie) {
+            $scope.movie = movie;
+        }
+
+        $scope.removeMovie = function (movie) {
+            var index = $scope.movies.indexOf(movie);
+            $scope.movies.splice(index, 1);
+        }
+    });
