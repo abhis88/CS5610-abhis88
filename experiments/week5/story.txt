@@ -1,2 +1,4 @@
 ﻿../../story/whatisnext.htm?../experiments/week5/          What is Next?
-Exp1/Exp1.html                                            Basic Angular JS Routing Experiment
+Exp2/Exp2.html                                            Angular JS Static Data Experiment
+Exp3/Exp3.html                                            Angular JS Dynamic Data Experiment
+Exp1/Exp1.html                                            Angular JS Routing Experiment
