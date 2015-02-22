@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS Routing Experiment</title>
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+    <script src="Exp4.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="Exp4.css" />
+</head>
+
+<body ng-app="CourseApp">
+    <div class="container" id="container">
+        <h1>Angular JS Routing Experiment </h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to demonstrate the Angular JS Routing.
+        Routing is used widely when the user wants to display many html pages without reloading the main page.
+        Here, I have created a Simple Course Management Website which uses routing to load pages. Use below mentioned
+        crendentials to login and check different tabs. Once the login is complete Profile tab will appear.
+        <hr />
+    </div>
+
+    <div class="container">
+        <nav ng-controller="navController" class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/home">Home</a></li>
+                        <li ng-show="currentUser"><a href="#/profile/{{currentUser.username}}">Profile</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li><a href="#/about">About</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="currentUser" ng-click="logout()"> <a href="#/home">Logout</a></li>
+                    </ul>
+
+                    <form class="navbar-form text-center" ng-show="!currentUser">
+                        <div class="form-group">
+                            <input ng-model="username" type="text" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input ng-model="password" type="password" placeholder="Password" class="form-control">
+                        </div>
+                        <button ng-click="login()" type="button" class="btn btn-success">Sign in</button>
+                    </form>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+        <div class="angular_border" ng-view>
+
+        </div>
+        <hr />
+    </div>
+
+
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        I have implemented the above using Angular JS Routing. In this example, you can load different webpages 
+        without reloading the main page. For this, I have created multiple controllers for each page as show
+        below. Each controller is tied with the UserService which acts as a single source for commands.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <pre>
+var app = angular.module("CourseApp", ["ngRoute"]);
+
+            <strong>&lt;!-- This is the route provider for each page. --&gt;</strong>
+app.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider.
+          when('/home', {
+              templateUrl: 'course/home.html'
+          }).
+          when('/profile/:username', {
+              templateUrl: 'course/profile.html',
+              controller: 'ProfileController'
+          }).
+          when('/contact', {
+              templateUrl: 'course/contact.html',
+              controller: 'ContactController'
+          }).
+          when('/about', {
+              templateUrl: 'course/about.html',
+              controller: 'AboutController'
+          }).
+          otherwise({
+              redirectTo: 'home'
+          });
+    }]);
+
+            <strong>&lt;!-- This is the Profile Controller. --&gt;</strong>
+app.controller("ProfileController", function ($scope, UserService, $routeParams) {
+    var username = $routeParams.username;
+    $scope.username = username;
+    $scope.currentUser = UserService.getCurrentUser();
+});
+
+            <strong>&lt;!-- This is the Contact Controller. --&gt;</strong>
+app.controller("ContactController", function ($scope, UserService, $routeParams) {
+    var username = $routeParams.username;
+    $scope.username = username;
+    $scope.currentUser = UserService.getCurrentUser();
+});
+
+            <strong>&lt;!-- This is the About Controller. --&gt;</strong>
+app.controller("AboutController", function ($scope, UserService, $routeParams) {
+    var username = $routeParams.username;
+    $scope.username = username;
+    $scope.currentUser = UserService.getCurrentUser();
+});
+
+            <strong>&lt;!-- This is the Navigation Controller. --&gt;</strong>
+app.controller("navController", function ($scope, UserService) {
+    $scope.login = function () {
+        $scope.currentUser = null;
+        $scope.logout = function () {
+            $scope.currentUser = null;
+            UserService.logout();
+            $scope.username = null;
+            $scope.password = null;
+        }
+        var username = $scope.username;
+        var password = $scope.password;
+        $scope.currentUser = UserService.login(username, password);
+    }
+});
+
+            <strong>&lt;!-- This is the UserService. --&gt;</strong>
+app.factory("UserService", function () {
+    var currentUser = null;
+    var users = [
+        { username: "admin", password: "admin", role: "admin" },
+        { username: "faculty", password: "faculty", role: "faculty" },
+        { username: "student", password: "student", role:"student" }
+    ]
+    
+    var logout = function () {
+        currentUser = null;
+    };
+    var login = function (username, password) {
+        for (var u in users) {
+            if (users[u].username == username) {
+                currentUser = users[u];
+                return users[u];
+            }
+        }
+        return null;
+    };
+    var getCurrentUser = function () {
+        return currentUser;
+    }
+    return {
+        login: login,
+        logout: logout,
+        getCurrentUser: getCurrentUser
+    }
+});
+    </pre>
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week5/Exp4/Exp4.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week5/Exp4/Exp4.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week5/Exp4/Exp4.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI" target="_blank">Prof. Jose (Routing) Youtube Channel</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>

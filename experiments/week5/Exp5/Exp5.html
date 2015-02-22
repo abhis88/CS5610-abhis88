@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular JS Blog Application</title>
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="Exp5.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="Exp5.css" />
+</head>
+
+<body ng-app="TextApp">
+    <div class="container" id="container">
+        <h1>Angular JS Blog Application </h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to create a TextApp. This app will allow users to save there blog's.
+        They can also delete their blog. The Application will also note the timestamp when the blog was saved.
+        This application is created using Angular JS.
+        <hr />
+    </div>
+
+    <div class="container">
+        <div class="angular_border">
+            <div class="text-center">Write and Save your Blog</div>
+            <div class="container" ng-controller="AppController">
+                <div class="box_center"><textarea ng-model="message" cols="60" rows="15"></textarea></div>
+                <div class="box_center">
+                    <button ng-click="saveBlog()">Save</button>
+                    <button ng-click="clearMessage()">Clear</button>
+                </div>
+                <p>Characters left: <span ng-bind="left()"></span></p>
+                <hr />
+                <h4>Blogs</h4>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="blog in blogs">
+                            <td>{{blog.title}}</td>
+                            <td>{{blog.date}}</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="removeBlog(blog)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+            </div>
+        </div>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        I have implemented the above using Angular JS MVC architecture. Here I have a Model, View and a Controller.
+        Scope is the scope of the controller. In this example, you can write your own blogs. You can save your blog.
+        Also, you can see how much characters are left before your finish your blog. Below is the code with required
+        functions.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <pre>
+var app = angular.module("TextApp", []);
+
+<strong>&lt;!-- Controller of the App --&gt;</strong>
+app.controller("AppController", function ($scope) {
+    $scope.blogs = [];
+    $scope.message = "";
+
+   <strong>&lt;!-- Function to count words left --&gt;</strong>
+    $scope.left = function () {
+        var rem = 100 - $scope.message.length;
+        return rem;
+    };
+
+   <strong>&lt;!-- Function to clear text area --&gt;</strong>
+    $scope.clearMessage = function () {
+        $scope.message = "";
+    };
+
+   <strong>&lt;!-- Function to save Blog --&gt;</strong>
+    $scope.saveBlog = function () {
+        $scope.currentDate = new Date();
+        var blog = {
+            title: $scope.message,
+            date: $scope.currentDate
+        }
+        $scope.blogs.push(blog);
+    };
+
+   <strong>&lt;!-- Function to remove saved blog --&gt;</strong>
+    $scope.removeBlog = function (blog) {
+        var index = $scope.blogs.indexOf(blog);
+        $scope.blogs.splice(index, 1);
+    }
+});
+    </pre>
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week5/Exp5/Exp5.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week5/Exp5/Exp5.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week5/Exp5/Exp5.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://www.w3schools.com/angular/angular_application.asp" target="_blank">W3 Schools Angular</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>

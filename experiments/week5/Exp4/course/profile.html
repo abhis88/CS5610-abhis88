@@ -1,0 +1,42 @@
+﻿<h2>Loading from Profile Page</h2>
+Hello {{currentUser.username}},
+
+<div ng-show="currentUser.role == 'faculty'">
+    <div>
+        <h3>Teaching Courses</h3>
+        <ul>
+            <li>Java 101</li>
+            <li>Node JS 101</li>
+            <li>Angular JS 101</li>
+            <li>Dot Net 101</li>
+            <li>C Sharp 101</li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="currentUser.role == 'student'">
+    <div>
+        <h3>Registered Courses</h3>
+        <ul>
+            <li>Mathematics</li>
+            <li>Node JS 101</li>
+            <li>Chemistry</li>
+            <li>Dot Net 101</li>
+            <li>Physics</li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="currentUser.role == 'admin'">
+    <div>
+        <h3>Admin Resources</h3>
+        <ul>
+            <li>Delete a faculty record</li>
+            <li>Delete a student record</li>
+            <li>Add new faculty</li>
+            <li>Add new student</li>
+            <li>Modify current faculty</li>
+            <li>Modify current student</li>
+        </ul>
+    </div>
+</div>

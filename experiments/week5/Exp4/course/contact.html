@@ -1,0 +1,39 @@
+﻿<h1>Loading Contact Page</h1>
+
+Hello {{currentUser.username}},
+
+<div ng-show="currentUser.role == 'faculty'">
+    <div>
+        <h3>Faculty Contact Info</h3>
+        <ul>
+            <li>Faculty 1: +1 123-456-7890</li>
+            <li>Faculty 2: +1 987-098-3214</li>
+            <li>Faculty 3: +1 123-456-7890</li>
+            <li>Faculty 4: +1 987-098-3214</li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="currentUser.role == 'student'">
+    <div>
+        <h3>Student Contact Info</h3>
+        <ul>
+            <li>Student 1: +1 123-456-7890</li>
+            <li>Student 2: +1 987-098-3214</li>
+            <li>Student 3: +1 123-456-7890</li>
+            <li>Student 4: +1 987-098-3214</li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="currentUser.role == 'admin'">
+    <div>
+        <h3>Admin Contact Info</h3>
+        <ul>
+            <li>Admin 1: +1 123-456-7890</li>
+            <li>Admin 2: +1 987-098-3214</li>
+            <li>Admin 3: +1 123-456-7890</li>
+            <li>Admin 4: +1 987-098-3214</li>
+        </ul>
+    </div>
+</div>
