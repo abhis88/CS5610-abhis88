@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JSON response using Node JS and Open Shift Server</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="jsonFromServer.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>JSON response using Node JS and Open Shift</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to provide the introduction to Node JS. In this experiment, If you click
+        on the link below then you will be directed to Open Shift Server the data will shown in JSON format.
+        JSON (JavaScript Object Notation) is the open standard format uses human readable text to transmit data 
+        object consisting of attribute value pair. It will return ordered list of values. The server 
+        checks for a particular url and based on that it sends a response in JSON format to the client. 
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>JSON response using Node JS</h4>
+        <p>
+            Below is the response from the server to the client. You can also see for yourself by 
+            <a href="http://nodejs-abhis88.rhcloud.com/api/Exp4" target="_blank"> clicking here. </a>
+            <img class="container" src="../../../images/week6/json.png" />
+        </p>
+        <hr />
+        <h4>Filtered JSON response using Node JS</h4>
+        <p>
+            Below is the response from the server to the client. You can also see for yourself by
+            <a href="http://nodejs-abhis88.rhcloud.com/api/Exp4/2" target="_blank"> clicking here. </a>
+            <img class="container" src="../../../images/week6/json1.png" />
+        </p>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        <p>
+            Below is the code snippet for the Node JS which runs on the Open Shift server.
+            This experiment parses a json variable and prints the result.
+        </p>
+
+        <pre>
+<b><u>server.js code</u></b>
+
+var express = require('express');
+var app = express();
+
+            var coursesTaken = [
+    {
+        firstName: "Abhishek",
+        lastName: "Kumar",
+        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
+            { name: "Algorithms" }, {name: "Web Development"}]
+    },
+    {
+        firstName: "Sachin",
+        lastName: "Tendulkar",
+        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
+            { name: "Algorithms" }, { name: "Web Development" }]
+    },
+    {
+        firstName: "Yuvraj",
+        lastName: "Singh",
+        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
+            { name: "Algorithms" }, { name: "Web Development" }]
+    },
+    {
+        firstName: "Bob",
+        lastName: "Marley",
+        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
+            { name: "Algorithms" }, { name: "Web Development" }]
+    },
+    {
+        firstName: "Pankaj",
+        lastName: "Tripathi",
+        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
+            { name: "Algorithms" }, { name: "Web Development" }]
+    }
+];
+
+/* Fetch Json format data */
+
+app.get("/api/Exp4", function (req, res) {
+    res.json(coursesTaken);
+});
+
+        </pre>
+
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp3/typeAndSee.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp3/typeAndSee.css" target="_blank">View CSS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://en.wikipedia.org/wiki/Node.js" target="_blank">Node JS Wikipedia</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo" target="_blank">Prof. Jose Youtube Channel on Node JS and Open Shift</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
