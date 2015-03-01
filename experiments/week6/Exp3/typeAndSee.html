@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Node JS and Open Shift Experiment</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="typeAndSee.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+    <script src="typeAndSee.js"></script>
+
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>Print the input on screen using server</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to provide the introduction to Node JS. In this experiment, If you click
+        on the link below then you will be directed to Open Shift Server where this particular experiment is
+        running. In this experiment, I have tried to show you the basics of NodeJs and OpenShit usage. Below
+        is the input box, you need to type and then click the link next to it to see the same printed on the
+        server. Now input and click on the link.
+        that
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>Node JS and Open Shift</h4>
+        <p>
+            Input anything in the box and you will see the same of the server.
+            <input type="text" id="input1" /> &nbsp; Click on the link to go to Open Shift server to get response from server.
+            <a href="#" id="click1"> click here. </a>
+        </p>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        <p>
+            Below is the code snippet for the Node JS which runs on the Open Shift server.
+            This experiment print whatever you will type in the text box from the server.
+        </p>
+
+        <pre>
+<b><u>server.js code</u></b>
+
+/* You name it, It will print it Experiment*/
+
+app.get("/api/Exp3/:id", function (req, res) {
+    var para1 = req.params.id;
+    res.send("You just typed this variable "+ para1);
+});
+
+app.get("/api/Exp3/", function (req, res) {
+    res.send("You have not typed anything");
+});
+        </pre>
+
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp3/typeAndSee.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp3/typeAndSee.css" target="_blank">View CSS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://en.wikipedia.org/wiki/Node.js" target="_blank">Node JS Wikipedia</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo" target="_blank">Prof. Jose Youtube Channel on Node JS and Open Shift</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

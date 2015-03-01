@@ -4,4 +4,4 @@
 ../story/index.htm?../experiments/week3/story.txt            WEEK 3 - JQuery Experiments
 ../story/index.htm?../experiments/week4/story.txt            WEEK 4 - JQuery, AJAX, JSON, JSONP, Angular JS, Web API Experiments
 ../story/index.htm?../experiments/week5/story.txt            WEEK 5 - Angular JS and Angular JS Routing Experiments
-../story/index.htm?../experiments/week6/story.txt            WEEK 6 - Node JS Experiments
+../story/index.htm?../experiments/week6/story.txt            WEEK 6 - Node JS and Open Shift Experiments

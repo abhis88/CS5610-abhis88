@@ -1,2 +1,4 @@
 ﻿../../story/whatisnext.htm?../experiments/week6/          What is Next?
 Exp1/IntroToNodeJs.html                                   Introduction to Node JS and Installation Experiments
+Exp2/helloFromServer.html                                 Hello World Experiment using Node JS and Open Shift
+Exp3/typeAndSee.html                                      Print the input on screen to see the same on server
