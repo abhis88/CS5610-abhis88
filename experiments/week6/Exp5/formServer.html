@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>JSON response using Node JS and Open Shift Server</title>
+    <title>Form using Node JS and Open Shift</title>
     <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="jsonFromServer.css" rel="stylesheet" />
+    <link href="formServer.css" rel="stylesheet" />
 
     <script src="../../../javascript/jquery.js"></script>
     <script src="../../../javascript/angular.min.js"></script>
@@ -15,7 +15,7 @@
 <body>
     <!-- Heading of the Page -->
     <div class="container" id="container">
-        <h1>JSON response using Node JS and Open Shift</h1>
+        <h1>Form using Node JS and Open Shift</h1>
         <hr class="blueLine" />
     </div>
 
@@ -27,23 +27,17 @@
         JSON (JavaScript Object Notation) is the open standard format uses human readable text to transmit data 
         object consisting of attribute value pair. It will return ordered list of values. The server 
         checks for a particular url and based on that it sends a response in JSON format to the client. 
+        In this experiment, you can add, edit, delete a particular row on the Open Shift Server.
         <hr class="blueLine" />
     </div>
 
     <!-- A topic with paragraph -->
     <div class="container">
-        <h4>JSON response using Node JS</h4>
+        <h4>Form using Node JS</h4>
         <p>
             Below is the response from the server to the client. You can also see for yourself by 
-            <a href="http://nodejs-abhis88.rhcloud.com/api/Exp4" target="_blank"> clicking here. </a>
-            <img class="container" src="../../../images/week6/json.png" />
-        </p>
-        <hr />
-        <h4>Filtered JSON response using Node JS</h4>
-        <p>
-            Below is the response from the server to the client. You can also see for yourself by
-            <a href="http://nodejs-abhis88.rhcloud.com/api/Exp4/2" target="_blank"> clicking here. </a>
-            <img class="container" src="../../../images/week6/json1.png" />
+            <a href="http://nodejs-abhis88.rhcloud.com" target="_blank"> clicking here. </a>
+            <img class="container" src="../../../images/week6/exp5.png" />
         </p>
         <hr />
     </div>
@@ -62,46 +56,59 @@
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var multer = require('multer');
 
-            var coursesTaken = [
-    {
-        firstName: "Abhishek",
-        lastName: "Kumar",
-        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
-            { name: "Algorithms" }, {name: "Web Development"}]
-    },
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(multer()); // for parsing multipart/form-data
+app.use(express.static(__dirname + '/public'));
+
+var players = [
     {
         firstName: "Sachin",
         lastName: "Tendulkar",
-        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
-            { name: "Algorithms" }, { name: "Web Development" }]
+        speciality: "Batsman"
     },
     {
         firstName: "Yuvraj",
         lastName: "Singh",
-        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
-            { name: "Algorithms" }, { name: "Web Development" }]
+        speciality: "Batsman"
     },
     {
-        firstName: "Bob",
-        lastName: "Marley",
-        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
-            { name: "Algorithms" }, { name: "Web Development" }]
+        firstName: "Bhubaneswar",
+        lastName: "Kumar",
+        speciality: "Bowler"
     },
     {
-        firstName: "Pankaj",
-        lastName: "Tripathi",
-        courseTaken: [{ name: "Program Design Paradigm" }, { name: "Database Management" },
-            { name: "Algorithms" }, { name: "Web Development" }]
+        firstName: "Mohammad",
+        lastName: "Sami",
+        speciality: "Bowler"
     }
 ];
 
-/* Fetch Json format data */
+app.delete("/api/player/:id", function (req, res) {
+    players.splice(req.params.id, 1);
+    res.json(players);
+})
 
-app.get("/api/Exp4", function (req, res) {
-    res.json(coursesTaken);
-});
+app.get("/api/player", function (req, res) {
+    res.json(players);
+})
 
+app.get("/api/player/:id", function (req, res) {
+    res.json(players[req.params.id]);
+})
+
+app.post("/api/player", function (req, res) {
+    players.push(req.body);
+    res.json(players);
+})
+
+app.put("/api/player/:id", function (req, res) {
+    players[req.params.id] = req.body;
+    res.json(players);
+})
         </pre>
 
         <hr />
@@ -112,8 +119,8 @@ app.get("/api/Exp4", function (req, res) {
 
     <div class="container">
         <h4> Source Code </h4>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp4/jsonFromServer.html" target="_blank">View HTML Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp4/jsonFromServer.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp5/formServer.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week6/Exp5/formServer.css" target="_blank">View CSS Source</a></div>
         <hr />
     </div>
 
