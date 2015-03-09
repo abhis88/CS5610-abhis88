@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB Insert Operation</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="MongoDB_Insert.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>MongoDB Insert Operation</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to explain how to insert data using mongodb. Output of this mongodb insert will be
+        a json. So, lets learn how to insert data into mongodb. Below experiment is done both locally and on server.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>MongoDB Insert</h4>
+        <p>
+            Click on the link to go to Open Shift server to get response from server.
+            <a href="http://nodejs-abhis88.rhcloud.com/api/Week7/Exp2" target="_blank"> click here. </a>
+            This is how it looks in remote server.
+            <img class="container" src="../../../images/week7/Exp2.png" />
+        </p>
+        <hr />
+        <h4>MongoDB Insert (local machine)</h4>
+        <p>
+            This is how it looks locally. You need to start the server <code>mongod.exe</code>. After starting the server
+            you should start the database <code>mongo.exe</code>. Remember to add them in path so that you can run the server
+            and database from any file location.
+        </p>
+        <img class="container" src="../../../images/week7/insert_local.png" />
+        <hr />
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        <p>
+            Below is the code snippet of the Mongoose which runs on the Open Shift server.
+             This experiment print shows the data in Json format from the server.
+        </p>
+
+        <pre>
+<b><u>server.js code</u></b>
+
+  var express = require('express');
+  var app = express();
+  var mongoose = require('mongoose');
+
+  /* Printing in Json Experiment */
+
+    app.get("/api/Week7/Exp1", function (req, res) {
+    var sampleData = {
+        firstName: "Abhishek",
+        lastName: "Kumar",
+        school: "Northeastern University",
+        location: "Boston",
+        mobile: "8572348869",
+        country: "USA",
+        homeCountry: "India",
+        sport: "Cricket",
+        age: "26",
+        weight: "80 Kg"
+    };
+    res.json(sampleData);
+});
+        </pre>
+
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp2/MongoDB_Insert.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp2/MongoDB_Insert.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">Server JS file</a></div>
+        <hr />
+    </div>
+    
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+        <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+        <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
