@@ -1,0 +1,38 @@
+﻿#title{
+    width:60%;
+}
+
+h1{
+    text-align:center;
+    color:#FF0040;
+}
+
+h3{
+    color:#298A08;
+}
+
+.footer_div {
+    padding-top: 15px;
+    
+    text-align: center;
+}
+
+pre{
+    margin-top:10px;
+    width:50%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+
+hr.blueLine{
+    border-color:#81DAF5;
+}
+
+img.container{
+    text-align:center;
+    width:80%;
+    height:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    border:2px solid black;
+}

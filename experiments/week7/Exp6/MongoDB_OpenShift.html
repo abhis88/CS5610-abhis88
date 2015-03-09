@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form (Operation in MongoDB)</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="MongoDB_OpenShift.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>Form using MongoDB as Backend</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database,
+        MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents
+        with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of
+        applications easier and faster.
+        The aim of the experiment is to use MongoDB as a database and do operation on remote OpenShift server.
+        So, lets learn how to operate MongoDB on remote server.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>Form (using MongoDB)</h4>
+        <p>
+            Click on the link to go to Open Shift server to get response from server <a href="http://nodejs-abhis88.rhcloud.com/Week7_Exp6.html" target="_blank"> Click here. </a>
+        </p>
+        <hr />
+
+        <p>
+            This code is running on remote server (OpenShift). All the operation is recorded by MongoDB. No array is used in
+            above experiment.
+        </p>
+
+        <img class="container" src="../../../images/week7/Week7_Exp6.png" />
+        <hr />
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        <p>
+            Below is the code snippet of the <code>server.js</code> which runs on the Open Shift server.
+            This experiment shows how to store data of a form using MongoDB.
+        </p>
+
+        <pre>
+<b><u>server.js code</u></b>
+
+var playerSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    speciality: String
+}, { collection: 'player' });
+
+var playerModel = mongoose.model('playerModel', playerSchema);
+
+            app.get("/Week7_Exp6.html/data", function (req, res) {
+    playerModel.find(function (err, data) {
+        res.json(data);
+    });
+});
+app.post("/Week7_Exp6.html/data", function (req, res) {
+    var player1 = new playerModel(req.body);
+    player1.save(function(err, doc){
+        playerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });    
+});
+app.delete("/Week7_Exp6.html/data/:id", function (req, res) {
+    playerModel.findById(req.params.id, function(err, doc){
+        doc.remove();
+        playerModel.find(function (err, data) {
+            res.json(data);
+        });
+    });
+});
+
+        </pre>
+
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp6/MongoDB_OpenShift.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp6/MongoDB_OpenShift.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">Server JS file</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+        <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+        <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose (Day 1)</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=c-etW7AX9cA" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose (Day 2)</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
