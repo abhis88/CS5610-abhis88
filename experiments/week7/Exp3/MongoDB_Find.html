@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB Find (SELECT) Operation</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="MongoDB_Find.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <script src="../../../javascript/angular-route.js"></script>
+
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>MongoDB Find  Operation</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to explain how to <code>find()</code> data using mongodb. Output of this experiment will be
+        a json.  Below experiment is done both locally and on server.
+        In order to see the data properly we can use <code>pretty()</code>.
+        This is same as SELECT * FROM Database WHERE = ??. Here I am using the same student database that I have used in
+        Insert experiment. So, lets learn how to find data in mongodb.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>MongoDB Find</h4>
+        <p>
+            Click on the link to go to Open Shift server to get response from server.
+        </p>
+        <ul>
+            <li>Find ALL (OpenShift Server) <a href="http://nodejs-abhis88.rhcloud.com/api/Week7/Exp3/" target="_blank"> Click here. </a></li>
+            <li>Find by FirstName (OpenShift Server) <a href="http://nodejs-abhis88.rhcloud.com/api/Week7/Exp3/firstName/Abhishek" target="_blank"> Click here. </a></li>
+            <li>Find by School (OpenShift Server) <a href="http://nodejs-abhis88.rhcloud.com/api/Week7/Exp3/school/Northeastern%20University" target="_blank"> Click here. </a></li>
+            <li>Find by Location (OpenShift Server) <a href="http://nodejs-abhis88.rhcloud.com/api/Week7/Exp3/location/Boston" target="_blank"> Click here. </a></li>
+        </ul>
+        <hr />
+
+        <h4>MongoDB Find ALL -- Equivalent to SELECT * FROM Database </h4>
+        <p>
+            This is how it looks locally. You need to start the server <code>mongod.exe</code>. After starting the server
+            you should start the database <code>mongo.exe</code>. Remember to add them in path so that you can run the server
+            and database from any file location. Then you can write your find query.
+        </p>
+
+        <p><b>MongoDB -- <code>db.student.find().pretty</code></b></p>
+        <img class="container" src="../../../images/week7/find_pretty_locally.png" />
+        <p><b>Using NodeJs Server</b></p>
+        <img class="container" src="../../../images/week7/server_find.png" />
+        <hr />
+
+
+        <h4>MongoDB Find (Using Filter) -- Equivalent to SELECT * FROM Database WHERE = ?</h4>
+        <p>
+            This is the query to find data with some filters on it. Here the data is filtered based on the firstName as Abhishek.
+        </p>
+        <p>MongoDB  -- <code>db.student.find(firstName: "Abhishek").pretty</code></p>
+        <img class="container" src="../../../images/week7/find_Abhishek_locally.png" />
+        <p><b>Using NodeJs Server</b></p>
+        <img class="container" src="../../../images/week7/find_Abhishek.png" />
+        <hr />
+
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        <p>
+            Below is the code snippet of the Mongoose which runs on the Open Shift server.
+            This experiment print shows the data in Json format from the server.
+        </p>
+
+        <pre>
+<b><u>server.js code</u></b>
+app.get('/api/Week7/Exp3', function (req, res) {
+    studentModel.find(function (err, data) {
+        res.json(data);
+    });
+});
+app.get('/api/Week7/Exp3/firstName/:firstName', function (req, res) {
+    studentModel.find({ firstName: { "$in": [req.params.firstName] } }, function (err, data) {
+        res.json(data);
+    });
+});
+app.get('/api/Week7/Exp3/location/:location', function (req, res) {
+    studentModel.find({ location: { "$in": [req.params.location] } }, function (err, data) {
+        res.json(data);
+    });
+});
+app.get('/api/Week7/Exp3/school/:school', function (req, res) {
+    studentModel.find({ school: { "$in": [req.params.school] } }, function (err, data) {
+        res.json(data);
+    });
+});
+        </pre>
+
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp3/MongoDB_Find.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/Exp3/MongoDB_Find.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">Server JS file</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://www.mongodb.org/">MongoDB Official Website</a></div>
+        <div><a href="http://mongoosejs.com/">MongooseJs Official Website</a></div>
+        <div> <a href="http://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB Wikipedia</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=YH5sFprHgl0" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose (Day 1)</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=c-etW7AX9cA" target="_blank">Prof. Jose Youtube Channel on MongoDB and Mongoose (Day 2)</a></div>
+    </div>
+    
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
