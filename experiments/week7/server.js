@@ -1,12 +1,28 @@
+
+/* REQUIRED MODULES*/
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongoose = require('mongoose');
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(multer()); // for parsing multipart/form-data
+
+app.use(express.static(__dirname + '/public'));
+
+/* CONNECTION STRINGS FOR MONGODB and OPENSHIFT */
 var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/experiments'
 mongoose.connect(connectionString);
 
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
+app.listen(port, ip);
+
+/* SCHEMA FOR MONGODB */
 
 var studentSchema = new mongoose.Schema({
     firstName: String,
@@ -27,14 +43,12 @@ var playerSchema = new mongoose.Schema({
     speciality: String
 }, { collection: 'player' });
 
+/* MODEL FOR MONGODB */
+
 var studentModel = mongoose.model('studentModel', studentSchema);
 var playerModel = mongoose.model('playerModel', playerSchema);
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(multer()); // for parsing multipart/form-data
-
-app.use(express.static(__dirname + '/public'));
+/* ARRAY */
 
 var coursesTaken = [
     {
@@ -69,6 +83,7 @@ var coursesTaken = [
     }
 ];
 
+/* ARRAY */
 
 var players = [
     {
@@ -93,11 +108,15 @@ var players = [
     }
 ];
 
+/* WEB SERVICE FOR FETCHING PLAYER INFO */
+
 app.get("/Week7_Exp6.html/data", function (req, res) {
     playerModel.find(function (err, data) {
         res.json(data);
     });
 });
+
+/* WEB SERVICE FOR SAVE PLAYER INFO */
 
 app.post("/Week7_Exp6.html/data", function (req, res) {
     var player1 = new playerModel(req.body);
@@ -108,6 +127,8 @@ app.post("/Week7_Exp6.html/data", function (req, res) {
     });    
 });
 
+/* WEB SERVICE FOR FINDING PLAYER BY ID */
+
 app.delete("/Week7_Exp6.html/data/:id", function (req, res) {
     playerModel.findById(req.params.id, function(err, doc){
         doc.remove();
@@ -117,19 +138,27 @@ app.delete("/Week7_Exp6.html/data/:id", function (req, res) {
     });
 });
 
+/* WEB SERVICE */
+
 app.delete("/api/player/:id", function (req, res) {
     players.splice(req.params.id, 1);
     res.json(players);
 });
 
+/* WEB SERVICES FOR FETCHING PLAYER LIST */
+
 app.get("/api/player", function (req, res) {
     res.json(players);
 })
+
+/* WEB SERVICE FOR POSTING PLAYER INFO */
 
 app.post("/api/player", function (req, res) {
     players.push(req.body);
     res.json(players);
 })
+
+/* WEB SERVICE BASED ON PLAYER ID */
 
 app.get("/api/player/:id", function (req, res) {
     res.json(players[req.params.id]);
@@ -186,6 +215,7 @@ app.get("/api/Week7/Exp2", function (req, res) {
     res.json(sampleData);
 });
 
+/* WEB SERVICE FOR FINDING STUDENT DATA */
 
 app.get('/api/Week7/Exp3', function (req, res) {
     studentModel.find(function (err, data) {
@@ -193,11 +223,15 @@ app.get('/api/Week7/Exp3', function (req, res) {
     });
 });
 
+/* WEB SERVICE FOR FINDING STUDENT DATA BASED ON FIRST NAME */
+
 app.get('/api/Week7/Exp3/firstName/:firstName', function (req, res) {
     studentModel.find({ firstName: { "$in": [req.params.firstName] } }, function (err, data) {
         res.json(data);
     });
 });
+
+/* WEB SERVICE FOR FINDING STUDENT DATA BASED ON LOCATION */
 
 app.get('/api/Week7/Exp3/location/:location', function (req, res) {
     studentModel.find({ location: { "$in": [req.params.location] } }, function (err, data) {
@@ -205,11 +239,15 @@ app.get('/api/Week7/Exp3/location/:location', function (req, res) {
     });
 });
 
+/* WEB SERVICE FOR FINDING STUDENT DATA BASED ON SCHOOL INFO */
+
 app.get('/api/Week7/Exp3/school/:school', function (req, res) {
     studentModel.find({ school: { "$in": [req.params.school] } }, function (err, data) {
         res.json(data);
     });
 });
+
+/* WEB SERVICE FOR FINDING STUDENT COUNT */
 
 app.get('/api/Week7/Exp4', function (req, res) {
     studentModel.count(function (err, data) {
@@ -217,17 +255,23 @@ app.get('/api/Week7/Exp4', function (req, res) {
     });
 });
 
+/* WEB SERVICE FOR REMOVING STUDENT DATA BASED ON LOCATION */
+
 app.get('/api/Week7/Exp5/location/:location', function (req, res) {
     studentModel.remove({ location: { "$in": [req.params.location] } }, function (err, data) {
         res.json("Number of records deleted : " + data);
     });
 });
 
+/* WEB SERVICE FOR REMOVING STUDENT DATA BASED ON FIRST NAME */
+
 app.get('/api/Week7/Exp5/firstName/:firstName', function (req, res) {
     studentModel.remove({ firstName: { "$in": [req.params.firstName] } }, function (err, data) {
         res.json("Number of records deleted : " + data);
     });
 });
+
+/* WEB SERVICE FOR FOR LOADING STUDENT DATA */
 
 app.get('/api/Week7/LoadData', function (req, res) {
     var student1 = new studentModel({ firstName: 'Abhishek', lastName: 'Kumar', school: 'Northeastern University', location: 'Boston', mobile: '8572348869', country: 'USA', homeCountry: 'India', sport: 'Cricket', age: '26', weight: '80 Kg' });
@@ -245,8 +289,3 @@ app.get('/api/Week7/LoadData', function (req, res) {
     res.json("Data loaded successfully");
 
 });
-
-var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-
-app.listen(port, ip);
