@@ -75,9 +75,6 @@
             <footer>
                 Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
             </footer>
-            <%--<div class="counter">               
-            <img src="http://counter7.allfreecounter.com/private/freecounterstat.php?c=8ef253dc4729aef4d277bbb99d0d1410">
-            </div>--%>
         </div>
     </div>
 </body>
