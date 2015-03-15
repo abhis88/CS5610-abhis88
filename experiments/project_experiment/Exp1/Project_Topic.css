@@ -1,0 +1,22 @@
+﻿#title{
+    width:60%;
+}
+
+h1{
+    text-align:center;
+    color:#FF0040;
+}
+
+h3{
+    color:#298A08;
+}
+
+.footer_div {
+    padding-top: 15px;
+    
+    text-align: center;
+}
+
+hr.blueLine{
+    border-color:#81DAF5;
+}
