@@ -1,5 +1,6 @@
 ﻿../../story/whatisnext.htm?../experiments/week9/      What is Next?
 Exp1/carousel.html                                    Carousel Experiment
 Exp2/bootstrap_dropdowns.html                         DropDown Experiment
+Exp3/googleMap.html                                   Google API Experiment
 Exp4/Autocomplete.html                                Autocomplete Experiment
 Exp5/check.html                                       Autocomplete with Condition

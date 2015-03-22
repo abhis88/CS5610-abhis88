@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google API Experiment</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="googleMap.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=weather"></script>
+    <script src="googleMap.js"></script>
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>Google API Experiment</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to learn how to use google weather API. This can be used as an additional feature in my project.
+        Everyone knows how to use google map and thus is very useful.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h4>Google Map using JavaScript (Google API)</h4>
+        <div class="article">
+            <div id="map-canvas-2"></div>
+        </div>
+    </div>
+
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h3>Code Snippet</h3>
+        <p>
+            Below is the code snippet used for the above weather API. Refer source code for more details.
+        </p>
+
+<pre>
+      
+function initialize() {
+    var googleMap = {
+        zoom: 2, center: new google.maps.LatLng(49.265984, -123.127491)
+    };
+    var map1 = new google.maps.Map(document.getElementById('map-canvas-2'), googleMap);
+    var weatherLayer = new google.maps.weather.WeatherLayer({
+        temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+    });
+    weatherLayer.setMap(map1);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</pre>
+
+        <hr />
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp3/googleMap.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp3/googleMap.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp3/googleMap.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://google.com" target="_blank">Google</a></div>
+        <div><a href="http://w3schools.com" target="_blank">W3 Schools</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
