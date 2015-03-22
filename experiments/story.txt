@@ -6,4 +6,5 @@
 ../story/index.htm?../experiments/week5/story.txt               WEEK 5 - Angular JS and Angular JS Routing Experiments
 ../story/index.htm?../experiments/week6/story.txt               WEEK 6 - Node JS and OpenShift Experiments
 ../story/index.htm?../experiments/week7/story.txt               WEEK 7 - MongoDB, Mongoose and OpenShift Experiments
-../story/index.htm?../experiments/project_experiment/story.txt  WEEK 8 - Project Topic and Related Experiments
+../story/index.htm?../experiments/week8/story.txt               WEEK 8 - Project Topic
+../story/index.htm?../experiments/week9/story.txt               WEEK 9 - Project Related Experiments

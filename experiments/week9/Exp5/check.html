@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Autocomplete with Condition</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../../../css/jquery-ui.css" rel="stylesheet"/>
+    <link href="check.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/jquery-ui.js"></script>
+    <script src="../../../javascript/bootstrap.min.js"></script>
+    <script src="check.js"></script>
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>Project : Autocomplete with Condition</h1>
+        <hr class="blueLine" />
+    </div>
+    
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to see how Autocomplete is implemented. Autocomplete's are used in order to represent
+        multiple information at one place in the form of the list. Here, Source and Destination cannot be same and hence a 
+        check has been implemented. Try to select same cities in both the boxes.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h2>Autocomplete </h2>
+        <p>
+            This is used on almost every website on the web. It is very common but very useful. You start typing and
+            you will be provided by various opitions based on your input text as of now. Check below.
+        </p>
+
+        <div class="container height_div">
+            <div class="ui-widget">
+                <div class="col-lg-4">
+                    <label for="tags" class="text-color">Flight Source: </label>
+                    <input class="form-control" placeholder="Source" id="flightSource">
+                </div>
+            </div>
+
+            <div class="ui-widget">
+                <div class="col-lg-4">
+                    <label for="tags" class="text-color">Flight Destination: </label>
+                    <input class="form-control" placeholder="Destination" id="flightDestination">                    
+                </div>                
+            </div>
+            <div id="star"></div>
+        </div>
+        <hr />
+    </div>
+
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h3>Code Snippet</h3>
+        <p>
+            Below is the code snippet of <code>Autocomplete.js</code>. Its a simple javascript call using id of the objects.
+            You can get more details on Source Code.
+        </p>
+
+<pre>
+$(function () {
+    dd_source = null;
+    dd_destination = null;
+    var availableTags = [
+         "Alabama",
+         "Alaska",
+         "Arizona",
+         "Arkansas",
+         "California",
+         "Colorado",
+         "Connecticut",
+         "Delaware",
+         "Florida",
+         "Georgia",
+         "Hawaii",
+         "Idaho",
+         "Illinois",
+         "Indiana",
+         "Iowa",
+         "Kansas",
+         "Kentucky",
+         "Louisiana",
+         "Maine",
+         "Maryland",
+         "Massachusetts",
+         "Michigan",
+         "Minnesota",
+         "Mississippi",
+         "Missouri",
+         "Montana",
+         "Nebraska",
+         "Nevada",
+         "New Hampshire",
+         "New Jersey",
+         "New Mexico",
+         "New York",
+         "North Carolina",
+         "North Dakota",
+         "Ohio",
+         "Oklahoma",
+         "Oregon",
+         "Pennsylvania",
+         "Rhode Island",
+         "South Carolina",
+         "South Dakota",
+         "Tennessee",
+         "Texas",
+         "Utah",
+         "Vermont",
+         "Virginia",
+         "Washington",
+         "West Virginia",
+         "Wisconsin",
+         "Wyoming"
+    ];
+    $("#flightSource").autocomplete({
+        source: availableTags,
+        change: function (ev, ui) {
+            dd_source = ui.item.label;
+        }
+    });
+    $("#flightDestination").autocomplete({
+        source: availableTags,
+        change: function (ev, ui) {
+            dd_destination = ui.item.label;
+            if (dd_source == dd_destination) {
+                alert("WhoO !! Source and Destination Cannot be same.");
+                $("#star").html("*");                
+            }
+        }
+    });
+});
+</pre>
+
+        <hr />
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp4/Autocomplete.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp4/Autocomplete.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp4/Autocomplete.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://jqueryui.com/autocomplete/" target="_blank">JQuery UI Website</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>

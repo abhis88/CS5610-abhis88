@@ -1,0 +1,41 @@
+﻿#title{
+    width:60%;
+}
+
+h1{
+    text-align:center;
+    color:#FF0040;
+}
+
+h3{
+    color:#298A08;
+}
+
+.code_wrapper {    
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: lightyellow;
+    width: 560px;
+    height: 360px;
+}
+
+.footer_div {
+    padding-top: 15px;
+    
+    text-align: center;
+}
+
+pre{
+    margin-top:10px;
+    width:68%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+
+hr.blueLine{
+    border-color:#81DAF5;
+}
+
+.dropdown, .dropup{
+    margin-top:3%;
+}

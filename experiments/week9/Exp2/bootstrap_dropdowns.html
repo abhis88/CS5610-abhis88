@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bootstrap Dropdowns Experiment</title>
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="bootstrap_dropdowns.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Heading of the Page -->
+    <div class="container" id="container">
+        <h1>Project : Bootstrap Dropdowns Experiment</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <!-- Article heading of the Page -->
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to see how Bootstrap dropdows are implemented. Dropdowns are used in order to represent
+        multiple information at one place in the form of the list. See below examples for more detail.
+        <hr class="blueLine" />
+    </div>
+
+    <!-- A topic with paragraph -->
+    <div class="container">
+        <h2>Bootstrap Dropdowns </h2>
+        <p>The .dropdown class is used to indicate a dropdown menu. Use the <code>.dropdown-menu</code> class to actually build the dropdown menu.</p>
+
+        <!-- FIRST DROPDOWN EXAMPLE -->
+        <div class="dropdown">
+            <h4>Normal Dropdown Menu</h4>
+            <p> Use the <code>.dropdown-menu</code> class to actually build the dropdown menu.</p>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Courses
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Development</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Program Design Paradigm</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Database Management</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Algorithm</a></li>
+            </ul>
+        </div>
+
+
+        <!-- SECOND DROPDOWN EXAMPLE -->
+        <div class="dropdown">
+            <h4> Headers inside the Dropdowns</h4>
+            <p>The <code>.dropdown-header</code> class is used to add headers inside the dropdown menu:</p>
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                Courses
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation" class="dropdown-header">Dropdown header 1</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Devlopment</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Algorithms</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Database Management</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" class="dropdown-header">Dropdown header 2</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- THIRD DROPDOWN EXAMPLE -->
+        <div class="dropdown">
+            <h4>Dropdowns with Disabled Content</h4>
+            <p>The <code>.disabled</code> class is used to disable an item in the dropdown menu:</p>
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                Courses
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Development</a></li>
+                <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Algorithms</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Database Management</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- FOURTH DROPDOWN EXAMPLE -->
+        <div class="dropup">
+            <h4>Dropup</h4>
+            <p>The <code>.dropup</code> class is used to have drop up menu:</p>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                Dropup Menu
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Development</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Algorithm</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Database Management</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Program Design Paradigm</a></li>
+            </ul>
+        </div>
+        <hr />
+    </div>
+    
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <h3>Code Snippet</h3>
+        <p>
+            Below is the code snippet one of the dropdowns. Almost all the dropdowns are written in
+            same manner. Only class names differs. You can get more details on Source Code.
+        </p>
+
+<pre>
+  &lt;div class="dropdown"&gt;
+    &lt;h4&gt; Normal Dropdown Menu &lt;/h4&gt;
+    ...
+    &lt;button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" 
+                   data-toggle="dropdown" aria-expanded="true"&gt;
+    Courses
+    &lt;span class="caret"&gt; &lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+     &lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Web Development&lt;/a&gt;&lt;/li&gt;
+     &lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Program Design Paradigm&lt;/a&gt;&lt;/li&gt;
+     &lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Database Management&lt;/a&gt;&lt;/li&gt;
+     &lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Algorithm&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+       .....
+       .... 
+</pre>
+
+        <hr />
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp2/bootstrap_dropdowns.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week9/Exp2/bootstrap_dropdowns.css" target="_blank">View CSS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div><a href="http://getbootstrap.com/components/" target="_blank">Bootstrap Dropdowns Website</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+</body>
+</html>
