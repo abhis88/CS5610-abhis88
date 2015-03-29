@@ -2,17 +2,13 @@
     width:60%;
 }
 
-.table{
-    margin-top:50px;
-}
-
 h1{
     text-align:center;
-    color:#610B0B;
+    color:#FF0040;
 }
 
 h3{
-    color:teal;
+    color:#298A08;
 }
 
 .code_wrapper {    
@@ -25,16 +21,27 @@ h3{
 
 .footer_div {
     padding-top: 15px;
-    clear: both;
+    
     text-align: center;
 }
 
 pre{
     margin-top:10px;
     width:60%;
-    height:40%;
     color:#c7254e;
     background-color:#f9f2f4;
+}
+
+hr.blueLine{
+    border-color:#81DAF5;
+}
+
+.adjust{
+    margin-top:3%;
+}
+
+.height{
+    margin-top:10%;
 }
 
 .ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
@@ -44,7 +51,3 @@ pre{
     font-size:14px;
 }
 .ui-autocomplete-loading { background: white url("../../../images/week10/ui-anim_basic_16x16.gif") right center no-repeat; }
-
-.height{
-    margin-top:15%;
-}

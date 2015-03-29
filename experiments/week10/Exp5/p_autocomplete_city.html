@@ -18,8 +18,8 @@
 </head>
 <body>
     <div class="container" id="container">
-        <h1>Autocomplete Experiment (JSONP)</h1>
-        <hr />
+        <h1>Autocomplete Experiment (JSON)</h1>
+        <hr class="blueLine" />
     </div>
 
     <div class="container">
@@ -28,28 +28,30 @@
         AJAX allows us to render the content asynchronously which allows us not to refresh the entire webpage and refresh
         a particular webpage area. Also it helps webpage to load quickly at the cilent's end. Below is the example where
         you need to type atleast three letters to invoke ajax call and the list of cities will be listed.
-        <hr />
+        <hr class="blueLine" />
     </div>
 
     <div class="container">
+        <h4>Find Different Routes</h4>
+        Type Source and Destination cities. This way AJAX call will happen and your typed cities will be listed.
+        You need to type atleast 3 characters of the city you intend to serach.
         <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-8 form-inline">
-                <label for="source" class="label-padding">City  &nbsp; </label>
-                <input id="source" class="form-control" placeholder="Type any city name...">&nbsp;&nbsp;
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8 form-inline adjust">
+                <label for="source" class="label-padding">Source City  &nbsp; </label>
+                <input id="source" class="form-control" placeholder="London">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="destination" class="label-padding">Destination City  &nbsp; </label>
+                <input id="destination" class="form-control" placeholder="Paris">&nbsp;&nbsp;
             </div>
             <div class="col-xs-2"></div>
         </div>
     </div>
 
-
-
     <div class="container height">
         <hr />
         <h4>Code Snippet</h4>
-        I have written a js file where on the click of the button, I am calling a function which in turn takes
-        input from the input box with id #title. The link returns the response. After receving response we
-        call a function called renderMovies which iterates over the response and prints.
+        I have written a js file (check source code) a AJAX call happens when you type atleast 3 characters of the city you
+        intend to search. Below is the code snippet.
     </div>
 
     <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
@@ -57,42 +59,61 @@
     <div class="container">
 
         <pre>
-$(function () {
-  $("#getMovies").click(function () {
-    var title = $("#title").val();
-    $.ajax({
-       url: "http://www.myapifilms.com/imdb?title=" + title + "&format=JSONP&aka=0
-             &business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0
-             &limit=10&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0
-             &filmography=0&bornDied=0&starSign=0&actorActress=0&actorTrivia=0
-             &movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N",
-       dataType: "jsonp",
-       success: renderMovies
-    });
-  });
-});
-function renderMovies(movies) {
-    var parent = $("#movies");
-    var template = parent.find(".template");
-    parent.empty();
-    for (var m in movies) {
-        var movie = movies[m];
-        var title = movie.title;
-        var year = movie.year;
-        var plot = movie.plot;
-        var idIMDB = movie.idIMDB;
-        var entity = template.clone();
-        if (plot == "") {
-            entity.find(".plot").html("Plot Not Fould");
-        } else {
-            entity.find(".plot").html(plot);
+jQuery(function () 
+{
+    /* --- SOURCE ---*/
+
+    jQuery("#source").autocomplete({
+        source: function (request, response) {
+            jQuery.getJSON(
+               "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+               function (data) {
+                   response(data);
+               }
+            );
+        },
+        minLength: 3,
+        select: function (event, ui) {
+            var selectedObj = ui.item;
+            jQuery("#source").val(selectedObj.value);
+            getcitydetails(selectedObj.value);
+            return false;
+        },
+        open: function () {
+            jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function () {
+            jQuery(this).removeClass("ui-corner-top").addClass("ui-corner-all");
         }
-        entity.find(".movieName").html(title);
-        entity.find(".releaseYear").html(year);
-        entity.find(".poster").attr("href", "http://www.imdb.com/title/" + idIMDB + "/");
-        parent.append(entity);
-    }
-}
+    });
+    
+    /*  --- DESTINATION --- */
+
+    jQuery("#destination").autocomplete({
+        source: function (request, response) {
+            jQuery.getJSON(
+               "http://gd.geobytes.com/AutoCompleteCity?callback=?&q=" + request.term,
+               function (data) {
+                   response(data);
+               }
+            );
+        },
+        minLength: 3,
+        select: function (event, ui) {
+            var selectedObj = ui.item;
+            jQuery("#destination").val(selectedObj.value);
+            getcitydetails(selectedObj.value);
+            return false;
+        },
+        open: function () {
+            jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+        },
+        close: function () {
+            jQuery(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        }
+    });
+    jQuery("#source, #destination").autocomplete("option", "delay", 100);
+});
     </pre>
         <hr />
     </div>
@@ -101,9 +122,9 @@ function renderMovies(movies) {
 
     <div class="container">
         <h4> Source Code </h4>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/html/Exp1.html" target="_blank">View HTML Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/css/Exp1.css" target="_blank">View CSS Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week4/js/Exp1.js" target="_blank">View JS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp5/p_autocomplete_city.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp5/p_autocomplete_city.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp5/p_autocomplete_city.js" target="_blank">View JS Source</a></div>
         <hr />
     </div>
 
@@ -111,6 +132,7 @@ function renderMovies(movies) {
 
     <div class="container">
         <h4>References</h4>
+        <div><a href="http://www.geobytes.com/" target="_blank">GeoBytes</a></div>
         <div> <a href="http://www.w3schools.com/ajax/" target="_blank">W3 Schools AJAX</a></div>
         <div> <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs" target="_blank">Prof. Jose Youtube Channel</a></div>
     </div>
