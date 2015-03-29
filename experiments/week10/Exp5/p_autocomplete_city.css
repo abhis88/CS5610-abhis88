@@ -1,0 +1,50 @@
+﻿#title{
+    width:60%;
+}
+
+.table{
+    margin-top:50px;
+}
+
+h1{
+    text-align:center;
+    color:#610B0B;
+}
+
+h3{
+    color:teal;
+}
+
+.code_wrapper {    
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: lightyellow;
+    width: 560px;
+    height: 360px;
+}
+
+.footer_div {
+    padding-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+pre{
+    margin-top:10px;
+    width:60%;
+    height:40%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+
+.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+    font-weight: normal;
+    margin: -1px;
+    text-align:left;
+    font-size:14px;
+}
+.ui-autocomplete-loading { background: white url("../../../images/week10/ui-anim_basic_16x16.gif") right center no-repeat; }
+
+.height{
+    margin-top:15%;
+}

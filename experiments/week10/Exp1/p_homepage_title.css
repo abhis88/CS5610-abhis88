@@ -1,0 +1,49 @@
+﻿.body_main {
+    background-color: #5cc1af;
+    width: 100%;
+    height: auto;
+}
+
+.header_div {
+    background-color: white;
+    width: 100%;
+    height: 140px;
+}
+
+.logo_div {
+    width: 15%;
+    height: 140px;
+    float: left;
+    background-image: url(../../../images/week10/logo_new.PNG);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left:11%;
+    //margin-top:1%;
+    //background-color:gray;
+}
+
+.navigation_div{
+    width: 100%;
+    height: 140px;
+}
+
+.navigation {
+    display: block;
+    padding-top: 60px;
+    list-style: none;
+    margin-right:10%;
+    float:right;
+}
+
+    .navigation li {
+        display: inline-block;
+        float: left;
+        padding: 0 40px;
+        height: 36px;
+        font-size: 0.9em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .navigation li a{
+        color:#5cc1af;
+    }

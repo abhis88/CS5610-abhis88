@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>API - Check</title>
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="p_json_object.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="p_json_object.css" />
+
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Checking API (JSON Object)</h1>
+        <hr class="blueLine" />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of this experiment is to check whether the selected API is working properly or not.
+        For this purpose, I have tried to print the object in the console. Below is the screenshot
+        of how it looks. If the object prints properly then it can be utilized to render more information
+        and can be represented in various ways. I have choosen a Route finder API hosted by <a href="http://free.rome2rio.com/">RomeToRio</a>.
+        <hr class="blueLine" />
+    </div>
+
+    <div class="container">
+        <h4>Find Different Routes</h4>
+        Type Source and Destination and hit fetch details to get the json object.
+        <div class="row height">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8 form-inline">
+                <label for="source" class="label-padding">Source  &nbsp; </label>
+                <input id="source" class="form-control" placeholder="London">&nbsp;&nbsp;
+
+                <label for="destination" class="label-padding">Destination  &nbsp; </label>
+                <input id="destination" class="form-control" placeholder="Paris">&nbsp;&nbsp;
+
+                <button id="getDetails" class="btn btn-primary">Fetch Details</button>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8 adjust"><img src="../../../images/week10/exp6.png" /></div>
+        
+    </div>
+    <div class="container height">
+        <hr />
+        <h4>Code Snippet</h4>
+        I have written a simple javascript file that will use AJAX call to render the object from the remote server and
+        print it in the browser console.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+
+        <pre>
+$(function () {
+    $("#getDetails").click(function () {
+        var source = $("#source").val();
+        var destination = $("#destination").val();
+        $.ajax({
+            url: "http://free.rome2rio.com/api/1.2/json/Search?key=eU7G6lzt&oName=" + source + "&dName=" + destination,
+            cache: "false",
+            success: function (data) {
+                console.log(data);
+                alert(data);
+            }
+        });
+    });
+});
+    </pre>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp6/p_json_object.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp6/p_json_object.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp6/p_json_object.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://www.w3schools.com/ajax/" target="_blank">W3 Schools AJAX</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs" target="_blank">Prof. Jose Youtube Channel</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
