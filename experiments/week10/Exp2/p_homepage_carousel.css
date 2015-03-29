@@ -88,3 +88,15 @@
 #myCarousel {
     margin-top: 10px;
 }
+
+pre{
+    margin-top:10px;
+    width:50%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+
+.footer_div {
+    padding-top: 15px;    
+    text-align: center;
+}
