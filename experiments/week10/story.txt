@@ -1,7 +1,3 @@
 ﻿../../story/whatisnext.htm?../experiments/week10/     What is Next?
-Exp1/p_homepage_title.html                            Project Page Title Experiment
-Exp2/p_homepage_carousel.html                         Project Page Title + Carousel Experiment
-Exp3/p_homepage_demo.html                             Project Page Title + Carousel + Demo Experiment
-Exp4/p_homepage_responsive.html                       Project Page Responsive Demo Experiment
 Exp5/p_autocomplete_city.html                         Fetching World cities using AJAX JSON Experiment
 Exp6/p_json_object.html                               Fetching routes information using API JSON Experiment
