@@ -41,12 +41,18 @@
                 <h1 class="name_div">Abhishek Kumar</h1>
                 <h4 class="name_sub_div">College of Computer and Information Science, Northeastern University</h4>
                 <div class="content">
-                    This website is being developed as a part of the course "CS-5610 : Web Development" instructed by Prof 
-                    Annunziato, Jose. There are numerous topics to be covered like HTML 5, CSS 3, JavaScript, Jquery, Node.js,
-                     Angular.js, Mean Stack, ASP Dot Net etc. We are expected to do different 
-                     <a href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a> on each topics. 
-                    Also, a <a href="project/project.html" target="_blank">Project</a> has to be created on the topic of 
-                    own choice. This course is very flexible and I like this course.
+                    <p>I have developed this website as a part of the course "CS-5610 : Web Development" instructed by Prof 
+                    Annunziato, Jose. There are numerous topics to be covered like HTML 5, CSS 3, JavaScript, Jquery, 
+                    MEAN Stack (MongonDB, Express, AngularJS, Node.js), ASP Dot Net etc. Every week, we are expected to do 
+                    atleast 5  
+                     <a href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a> on each topics
+                    discussed in class. Experiments ranges from developing the simple web tools to creating single page 
+                    applications. In addition, every student should develop a  
+                    <a href="project/project.html" target="_blank">Project</a> of his own choice. Moreover, we are expected
+                        to write <a href="blog/" target="_blank">Blog</a> about our progress every week.
+                    </p><p> I would like to thank 
+                    Prof. Jose and TA's for providing great learning experience through out the course
+                    with constructive feedbacks and regular updates. At last, this course is very flexible and I really liked this course.</p>
                 </div>
             </div>
         </div>
