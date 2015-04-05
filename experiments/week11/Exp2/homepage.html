@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project HomePage</title>
+    <link rel="shortcut icon" href="../../../images/week10/meta_logo.ico" type="image/x-icon" title="favicon">
+    <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="homepage.css" rel="stylesheet" />
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="../../../javascript/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- ----------- Aim of the experiment -------------- -->
+
+    <div class="container height">
+        <hr />
+        <h2>Aim of the Experiment</h2>
+        The aim of the experiment is to have a Sign Up form in the project homepage. There should be a Sign Up button. Upon
+        clicking the Sign Up button a Sign Up modal should appear. This Modal should ask for Username, Email, Humanity Check and Password information.
+        Basic login checks should be implemented.
+        <hr />
+    </div>
+
+    <div class="signup-div">
+        <img src="../../../images/week11/signup.png" class="signup" />
+    </div>
+    <div class="container">
+        <hr />
+        <h3>
+            Here is the Project HomePage. Request you to please click on Sign In button and check the result yourself.
+            There should be three tabs Sign In, Sign Up and Why?.
+        </h3>
+        <hr />
+    </div>
+
+    <!-- Static navigation bar -->
+    <div class="navbar-wrapper container">
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="navbar-brand" href="#">Travel Guide</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Route</a></li>
+                            <li><a href="#">Weather</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" data-toggle="modal" data-target=".bs-modal-sm">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal Starts here -->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <br>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                        <li class=""><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                        <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in" id="why">
+                            <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+                            <p></p><br> Please contact <a mailto:href="kumar.abh@husky.neu.edu">kumar.abh@husky.neu.edu</a> for any other inquiries.</p>
+                        </div>
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">User Name:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control input-medium" placeholder="Abhishek">
+                                        </div>
+                                    </div>
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control input-medium" type="password" placeholder="********">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Checkboxes (inline) -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-0">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control input-large" type="text" placeholder="kumar.abh@husky.neu.edu" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">User Name:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="userid" class="form-control input-large" type="text" placeholder="Abhishek" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                                            <em>1-8 Characters</em>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                                        <div class="controls">
+                                            <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Radios (inline) -->
+                                    <br>
+                                    <div class="control-group">
+                                        <label class="control-label" for="humancheck">Are you Human?</label>
+                                        <div class="controls">
+                                            <label class="radio inline" for="humancheck-0">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot
+                                            </label>
+                                            <label class="radio inline" for="humancheck-1">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign In Modal Ends here -->
+    <!-- CAROUSEL -->
+    <div class="container-width container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="../../../images/week9/flight1.jpg" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h2>Gallery</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src=" ../../../images/week10/weather_carousel.jpg" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h2>Route</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../../../images/week9/flight3.jpg" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h2>Weather</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container marketing">
+        <div class="row services"><h1><b>SERVICES</b></h1></div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="../../../images/week10/gallery.jpg">
+                <h2>Gallery</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="../../../images/week10/route.jpg">
+                <h2>Route Finder</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-circle" src="../../../images/week10/weather1.jpg">
+                <h2>Weather</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+                <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image img-circle pull-right img-responsive" src="../../../images/week10/vegas.jpg">
+            <h2 class="featurette-heading">Top 10 Destinations. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image img-circle pull-left img-responsive" src="../../../images/week10/discount.jpg">
+            <h2 class="featurette-heading">Better Deals. <span class="text-muted">Minimum 20% discount.</span></h2>
+            <p class="lead">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image img-circle pull-right img-responsive" src="../../../images/week10/hotel.jpg">
+            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Hotel Deals.</span></h2>
+            <p class="lead">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>Copy Right &copy; Abhishek Kumar, Northeastern University, Spring 2015 </p>
+        </footer>
+
+    </div>
+
+    <!-- ----------- Code Snippet -------------- -->
+
+    <div class="container height">
+        <hr />
+        <h4>Code Snippet</h4>
+        I have written a simple bootstrap code to have a Modal Sign In functionality that enables the user to login into the page.
+        For more details you can check source code.
+    </div>
+
+    <!-- --------------- Code Content ---------------- -->
+
+    <div class="container">
+        <pre>
+&lt;div class="tab-pane fade" id="signup">
+ &lt;form class="form-horizontal">
+  &lt;fieldset>                                    
+   &lt;div class="control-group">
+    &lt;label class="control-label" for="Email">Email:&lt;/label>
+    &lt;div class="controls">
+     &lt;input id="Email" name="Email" class="form-control input-large" type="text" placeholder="kumar.abh@husky.neu.edu" required="">
+    &lt;/div>
+  &lt;/div>
+ 
+ <!-- Text input-->
+ &lt;div class="control-group">
+  &lt;label class="control-label" for="userid">User Name:&lt;/label>
+  &lt;div class="controls">
+   &lt;input id="userid" name="userid" class="form-control input-large" type="text" placeholder="Abhishek" required="">
+  &lt;/div>
+ &lt;/div>
+ 
+ <!-- Password input-->
+ &lt;div class="control-group">
+  &lt;label class="control-label" for="password">Password:&lt;/label>
+  &lt;div class="controls">
+   &lt;input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+   &lt;em>1-8 Characters&lt;/em>
+  &lt;/div>
+ &lt;/div>
+ 
+<!-- Text input-->
+ &lt;div class="control-group">
+  &lt;label class="control-label" for="reenterpassword">Re-Enter Password:&lt;/label>
+  &lt;div class="controls">
+   &lt;input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+  &lt;/div>
+ &lt;/div>
+</pre>
+        <hr />
+    </div>
+
+    <!-- ------------------ View Source Files ------------------------- -->
+
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week11/Exp2/homepage.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week11/Exp2/homepage.css" target="_blank">View CSS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://bootsnipp.com/snippets/featured/sign-in-sign-up-dual-modal" target="_blank">Sign In Modal by Bootsnipp</a></div>
+        <div> <a href="http://www.w3schools.com/bootstrap/default.asp" target="_blank">W3 Schools Bootstrap</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=eX4iT8ZkoLc" target="_blank">Prof. Jose Youtube Channel</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>

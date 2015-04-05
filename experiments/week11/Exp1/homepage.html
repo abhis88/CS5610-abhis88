@@ -5,15 +5,34 @@
     <link rel="shortcut icon" href="../../../images/week10/meta_logo.ico" type="image/x-icon" title="favicon">
     <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="p_homepage_demo.css" rel="stylesheet" />
+    <link href="homepage.css" rel="stylesheet" />
 
     <script src="../../../javascript/jquery.js"></script>
     <script src="../../../javascript/bootstrap.min.js"></script>
 </head>
 
-<body class="body_main">
-    <!-- NAVIGATION BAR -->
-    <div class="navbar-wrapper">
+<body>
+    <!-- ----------- Aim of the experiment -------------- -->
+
+    <div class="container height">
+        <hr />
+        <h2>Aim of the Experiment</h2>
+        The aim of the experiment is to have a Sign In form in the project homepage. Upon
+        clicking the Sign In button a Sign In <code>modal</code> should appear. This Modal should ask for Username, and Password information.
+        Basic login checks should be implemented.
+        <hr />
+    </div>
+
+    <div class="signin-div">
+        <img src="../../../images/week11/signin.png" class="signin" />
+    </div>
+    <div class="container">
+        <hr />
+        <h3>Here is the Project HomePage. Request you to please click on Sign In button and check the result yourself.</h3>
+        <hr />
+    </div>
+    <!-- Static navigation bar -->
+    <div class="navbar-wrapper container">
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="navbar-header">
                 <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,15 +54,77 @@
                         </ul>
                     </li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="#" data-toggle="modal" data-target=".bs-modal-sm">Sign In</a></li>
                 </ul>
             </div>
         </div>
-
     </div>
 
+    <!-- Sign In Modal Starts here -->
+    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <br>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">User Name:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control input-medium" placeholder="Abhishek">
+                                        </div>
+                                    </div>
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control input-medium" type="password" placeholder="********">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple Checkboxes (inline) -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="rememberme"></label>
+                                        <div class="controls">
+                                            <label class="checkbox inline" for="rememberme-0">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign In Modal Ends here -->
     <!-- CAROUSEL -->
-    <div class="container-width">
+    <div class="container-width container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -151,22 +232,13 @@
 
         <hr class="featurette-divider">
 
-        <!-- /END THE FEATURETTES -->
+
         <!-- FOOTER -->
         <footer>
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>Copy Right &copy; Abhishek Kumar, Northeastern University, Spring 2015</p>
+            <p>Copy Right &copy; Abhishek Kumar, Northeastern University, Spring 2015 </p>
         </footer>
 
-    </div>
-
-    <!-- ----------- Aim of the experiment -------------- -->
-
-    <div class="container height">
-        <hr />
-        <h3>Aim of the Experiment</h3>
-        The aim of the experiment is to decide the header of the Project HomePage and comeup with a logo. You can
-        see above for live demo of the header. I have used CSS for the above design.
     </div>
 
     <!-- ----------- Code Snippet -------------- -->
@@ -174,154 +246,38 @@
     <div class="container height">
         <hr />
         <h4>Code Snippet</h4>
-        I have written a simple css file that enables the design of this page. The topmost header is designed by below code snippet.
-        For more details you can check source code.
+        I have written a simple bootstrap code to have a Modal Sign In functionality that enables the user to login into the page.
+        For more details you can check source code. Here I have shown only the UserName tag of Sign In tab.
     </div>
 
     <!-- --------------- Code Content ---------------- -->
 
     <div class="container">
 
-        <pre>
-body {
-    margin:5px;
-    padding-bottom: 40px;
-    color: #5a5a5a;
-}
-.navbar-wrapper {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-.carousel {
-    margin-bottom: 60px;
-}
-.carousel-caption {
-    z-index: 1;
-}
-.carousel .item {
-    height: 500px;
-    background-color: #555;
-}
-.carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 400px;
-}
-#myCarousel {
-    margin-top: 100px;
-}
-.services{
-    margin-top:20px;
-    margin-bottom:100px;
-    text-align:center;
-}
-.marketing {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-    .marketing .col-lg-4 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .marketing h2 {
-        font-weight: normal;
-    }
-    .marketing .col-lg-4 p {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-.featurette-divider {
-    margin: 80px 0;
-}
-.featurette {
-    padding-top: 120px;
-    overflow: hidden;
-}
-.featurette-image {
-    margin-top: -120px;
-}
-    .featurette-image.pull-left {
-        margin-right: 40px;
-    }
-    .featurette-image.pull-right {
-        margin-left: 40px;
-    }
-.featurette-heading {
-    font-size: 50px;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-.navbar-right {
-    padding-right: 20px;
-}
-/* RESPONSIVE CSS */
-@media(max-width: 768px){
-    #myCarousel {
-        margin-top: 5px;
-    }
-}
-@media (min-width: 768px) {
-    /* Remve the edge padding needed for mobile */
-    .marketing {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Navbar positioning foo */
-    .navbar-wrapper {
-        margin-top: 20px;
-        margin-bottom: -90px;
-    }
-        /* The navbar becomes detached from the top, so we round the corners */
-        .navbar-wrapper .navbar {
-            border-radius: 4px;
-        }
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-        margin-bottom: 20px;
-        font-size: 21px;
-        line-height: 1.4;
-    }
-}
-.content-1 {
-    background-color: rgba(92, 193, 175, 0.99);
-    width: 100%;
-    padding-top: 4%;
-    padding-left:6%;
-    padding-bottom:4%;
-    height: 500px;
-}
-.header_line{
-    text-align:center;
-    margin:5%;
-}
-.content-1 a{
-    color:white;
-    text-decoration:none;
-}
-.footer-div{
-    background-color:#5cc1af;
-    width:100%;
-    height:40px;
-    margin-bottom:10px;
-    text-align:center;
-    color:white;
-    padding-top:10px;
-}
-pre{
-    margin-top:10px;
-    width:50%;
-    color:#c7254e;
-    background-color:#f9f2f4;
-}
-.footer_div {
-    padding-top: 15px;    
-    text-align: center;
-}
-    </pre>
+<pre>
+    &lt;div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+     &lt;div class="modal-dialog modal-sm">
+      &lt;div class="modal-content">
+       &lt;div class="bs-example bs-example-tabs">
+        &lt;ul id="myTab" class="nav nav-tabs">
+         &lt;li class="active">&lt;a href="#signin" data-toggle="tab">Sign In&lt;/a>&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+     &lt;div class="modal-body">
+    &lt;div id="myTabContent" class="tab-content">
+   &lt;div class="tab-pane fade active in" id="signin">
+   
+  &lt;form class="form-horizontal">
+   &lt;fieldset>
+    &lt;div class="control-group">
+     &lt;label class="control-label" for="userid">User Name:&lt;/label>
+      &lt;div class="controls">
+       &lt;input required="" id="userid" name="userid" type="text" class="form-control input-medium" placeholder="Abhishek">
+      &lt;/div>
+     &lt;/div>
+    &lt;/fieldset>
+   &lt;/form>
+</pre>
         <hr />
     </div>
 
@@ -329,8 +285,8 @@ pre{
 
     <div class="container">
         <h4> Source Code </h4>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp3/p_homepage_demo.html" target="_blank">View HTML Source</a></div>
-        <div><a href="../../../fileview/Default.aspx?~/experiments/week10/Exp3/p_homepage_demo.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week11/Exp1/homepage.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week11/Exp1/homepage.css" target="_blank">View CSS Source</a></div>
         <hr />
     </div>
 
@@ -338,6 +294,7 @@ pre{
 
     <div class="container">
         <h4>References</h4>
+        <div> <a href="http://bootsnipp.com/snippets/featured/sign-in-sign-up-dual-modal" target="_blank">Sign In Modal by Bootsnipp</a></div>
         <div> <a href="http://www.w3schools.com/bootstrap/default.asp" target="_blank">W3 Schools Bootstrap</a></div>
         <div> <a href="https://www.youtube.com/watch?v=eX4iT8ZkoLc" target="_blank">Prof. Jose Youtube Channel</a></div>
     </div>

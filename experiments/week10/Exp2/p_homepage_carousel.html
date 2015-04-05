@@ -5,7 +5,6 @@
     <link rel="shortcut icon" href="../../../images/week10/meta_logo.ico" type="image/x-icon" title="favicon">
     <link href="../../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../../../css/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="../../../css/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet" />
     <link href="p_homepage_carousel.css" rel="stylesheet" />
 
     <script src="../../../javascript/jquery.js"></script>
@@ -13,23 +12,39 @@
 </head>
 
 <body class="body_main">
-    <div class="header_div">
-        <div class="logo_div"></div>
-        <div class="navigation_div">
-            <nav class="navigation">
-                <ul>
-                    <li><a class="active" href="/#work">Home</a></li>
-                    <li><a href="/company/">Trip</a></li>
-                    <li><a href="/careers/">Route</a></li>
-                    <li><a href="/writing/">Weather</a></li>
-                    <li><a class="navigation-link" href="mailto:abkr2009@gmail.com">Contact</a></li>
+    <!-- NAVIGATION BAR -->
+    <div class="navbar-wrapper">
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="navbar-brand" href="#">Travel Guide</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Route</a></li>
+                            <li><a href="#">Weather</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Login</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
+
     </div>
-    <div class="container container-width">
+
+    <!-- CAROUSEL -->
+    <div class="container-width">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1" class=""></li>
@@ -40,15 +55,15 @@
                     <img src="../../../images/week9/flight1.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h2>Floating Slide 1 Notes</h2>
+                            <h2>Gallery</h2>
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../../../images/week9/flight2.jpg" alt="Second slide">
+                    <img src=" ../../../images/week10/weather_carousel.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h2>Floating Slide 2 Notes</h2>
+                            <h2>Route</h2>
                         </div>
                     </div>
                 </div>
@@ -56,13 +71,14 @@
                     <img src="../../../images/week9/flight3.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h2>Floating Slide 3 Notes</h2>
+                            <h2>Weather</h2>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+    </div>    
 
     <!-- ----------- Aim of the experiment -------------- -->
 
@@ -87,86 +103,97 @@
     <div class="container">
 
         <pre>
-.body_main {
-    width: 100%;
-    height: auto;
+body {
+    margin:5px;
+    padding-bottom: 40px;
+    color: #5a5a5a;
 }
-.header_div {
-    background-color: white;
-    width: 100%;
-    height: auto;
-}
-.logo_div {
-    width: 15%;
-    height: 140px;
-    float: left;
-    background-image: url(../../../images/week10/logo_teal.PNG);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: 11%;
-}
-.navigation_div {
-    width: 100%;
-    height: 140px;
-}
-.navigation {
-    display: block;
-    padding-top: 4%;
-    list-style: none;
-    margin-right: 10%;
-    float: right;
-}
-    .navigation li {
-        display: inline-block;
-        float: left;
-        margin-top:5px;
-        margin-left:10px;
-        margin-right:20px;
-        padding: 0 30px;
-        padding-top:8px;
-        height: 36px;
-        font-size: 0.9em;
-        font-weight: 700;
-        text-transform: uppercase;
-        border:1px solid #5cc1af;
-        border-radius:5px;
-    }
-        .navigation li a {
-            color: rgba(92, 193, 175, 0.77);
-            text-decoration:none;
-        }
-        .navigation li a:hover{
-            color: #5cc1af;            
-        }        
-.container-width {
-    width: 100%;
-    padding:0px;
-    margin:0px;
+.navbar-wrapper {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 .carousel {
-    height: 500px;
     margin-bottom: 60px;
 }
-/* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-    line-height:25;
+    z-index: 1;
 }
-/* Declare heights because of positioning of img element */
 .carousel .item {
     height: 500px;
-    background-color: #777;
+    background-color: #555;
 }
-.carousel-inner > .item > img {
+.carousel img {
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100%;
-    height: 500px;
+    min-height: 400px;
 }
 #myCarousel {
-    margin-top: 10px;
+    margin-top: 100px;
 }
-   
+.navbar-right {
+    padding-right: 20px;
+}
+/* RESPONSIVE CSS */
+@media(max-width: 768px){
+    #myCarousel {
+        margin-top: 5px;
+    }
+}
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 20px;
+        margin-bottom: -90px;
+    }
+        /* The navbar becomes detached from the top, so we round the corners */
+        .navbar-wrapper .navbar {
+            border-radius: 4px;
+        }
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+}
+.content-1 {
+    background-color: rgba(92, 193, 175, 0.99);
+    width: 100%;
+    padding-top: 4%;
+    padding-left:6%;
+    padding-bottom:4%;
+    height: 500px;
+}
+.header_line{
+    text-align:center;
+    margin:5%;
+}
+.content-1 a{
+    color:white;
+    text-decoration:none;
+}
+.footer-div{
+    background-color:#5cc1af;
+    width:100%;
+    height:40px;
+    margin-bottom:10px;
+    text-align:center;
+    color:white;
+    padding-top:10px;
+}
+pre{
+    margin-top:10px;
+    width:50%;
+    color:#c7254e;
+    background-color:#f9f2f4;
+}
+.footer_div {
+    padding-top: 15px;    
+    text-align: center;
+}   
     </pre>
         <hr />
     </div>
