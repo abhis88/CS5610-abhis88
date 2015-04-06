@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Playing with API object</title>
+
+    <script src="../../../javascript/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="Exp5.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="Exp5.css" />
+</head>
+
+<body ng-app="TravelApp">
+    <div class="container" id="container">
+        <h1>Flight Info API </h1>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h3>Aim of the Experiment</h3>
+        The aim of the experiment is to use the Google API to find the route information.
+        Here, you need to find the source and destination cities. Then by clicking on each details button
+        you can see google view of the city.
+        <hr />
+    </div>
+
+    <div class="container">
+        <div class="angular_border">
+            <div class="container" ng-controller="Travel-Controller">
+                <div class="row">
+                    <div class="col-xs-11">
+                        <h3 class="text-center">
+                            Route finder using Google API
+                        </h3>
+                        <hr />
+                        <div class="form-inline text-center">
+                            <label>Source City</label>
+                            <input class="form-control" ng-model="oCity" placeholder="Boston"/>
+                            <label>Destination City</label>
+                            <input class="form-control" ng-model="dCity" placeholder="Phoenix" />
+                            <button class="btn btn-success" ng-click="searchAirports()"> 
+                               <span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        
+                        <table class="table table-stripped">
+                            <thead>
+                                <tr class="heading_color">
+                                    <th>City</th>
+                                    <th>Coordinates</th>
+                                    <th>State</th>
+                                    <th>Country</th>
+                                    <th>&nbsp;</th>
+                                </tr>                                
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="place in places">
+                                    <td>{{place.name}}</td>
+                                    <td>{{place.pos}}</td>
+                                    <td>{{place.regionCode}}</td>
+                                    <td>{{place.countryCode}}</td>
+                                    <td>
+                                        <button class="btn btn-warning" ng-click="selectPlace(place)">
+                                            <span class="glyphicon glyphicon-map-marker"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                                                                   
+                    </div>
+                    <div class="center_div">
+                        <div id="googlemap"></div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+    <div class="container">
+        <h4>Code Snippet</h4>
+        This is the code used for the implementation of above experiment. For more details you can click on source code.
+    </div>
+
+    <!-- ---------------------------- Code Content 1 ----------------------------------------- -->
+
+    <div class="container">
+        <pre>
+var app = angular.module("TravelApp", []);
+
+var app = angular.module("TravelApp", []);
+app.controller("Travel-Controller",
+    function ($scope, $http) {
+        var places = [];
+        $scope.searchAirports = function () {
+            var oCity = $scope.oCity;
+            var dCity = $scope.dCity;
+            $http.get("http://free.rome2rio.com/api/1.2/json/Search?key=eU7G6lzt&oName=" + oCity + "&dName=" + dCity)
+            .success(function (response) {
+                console.log(response);
+                $scope.places = response.places;
+            })
+        }
+        $scope.selectPlace = function (place) {
+            console.log(place);
+            var position = place.pos.split(",");
+            
+            console.log(position[0] + " --- " + position[1]);
+            var mapOptions = {
+                center: new google.maps.LatLng(position[0], position[1]),
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById('googlemap'), mapOptions);
+            var v_markerOptions = {
+                position: new google.maps.LatLng(position[0], position[1])
+            };
+            var v_marker = new google.maps.Marker(v_markerOptions);
+            v_marker.setMap(map);
+            var v_info = {
+                content: place.longName
+            };
+            var v_infoWindow = new google.maps.InfoWindow(v_info);
+            google.maps.event.addListener(v_marker, 'click', function (e) {
+                v_infoWindow.open(map, v_marker);
+            });
+        }
+    });
+    </pre>
+        <hr />
+    </div>
+    <!-- ---------------------------- View Source Files ----------------------------------------- -->
+    <div class="container">
+        <h4> Source Code </h4>
+        <div><a href="../../../fileview/Default.aspx?~/experiments/week11/Exp5/Exp5.html" target="_blank">View HTML Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week11/Exp5/Exp5.css" target="_blank">View CSS Source</a></div>
+        <div><a href="../../../fileview/Default.aspx?~//experiments/week11/Exp5/Exp5.js" target="_blank">View JS Source</a></div>
+        <hr />
+    </div>
+
+    <!-- ---------------------------- References  ----------------------------------------- -->
+
+    <div class="container">
+        <h4>References</h4>
+        <div> <a href="http://free.rome2rio.com/documentation" target="_blank">Rome to Rio API</a></div>
+        <div> <a href="https://www.youtube.com/watch?v=Kan1sMNOlIc" target="_blank">Prof. Jose (Routing) Youtube Channel</a></div>
+    </div>
+
+    <!------------------------------ Footer --------------------------------------->
+
+    <div class="footer_div">
+        <footer>
+            Northeastern University, CCIS Spring 2015, Copy Right &copy; Abhishek Kumar
+        </footer>
+    </div>
+
+</body>
+</html>
