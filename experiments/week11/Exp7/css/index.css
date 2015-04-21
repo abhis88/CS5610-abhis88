@@ -1,0 +1,26 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    height:auto;
+    font-size: 100%;
+    line-height: 1.6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav_div{
+    margin-bottom:15px;
+}
+
+.footer_div{
+    background-color:#717D8C;
+    width:100%;
+    height:40px;
+    text-align:center;
+    padding-top:5px;
+    margin-top:20px;
+}

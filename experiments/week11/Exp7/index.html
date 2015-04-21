@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Travel Guide</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" title="favicon">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="views/contact/contact.css" rel="stylesheet" />
+    <link href="services/route/route.css" rel="stylesheet" />
+
+    <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="travelApp" ng-controller="travelController">
+    <div class="nav_div">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">TG</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/home">Home</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#/route">Route</a></li>
+                                <li><a href="#/weather">Weather</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/contact">Contact</a></li>
+                        <li><a href="#/profile" ng-show="currentUser">Profile</a></li>
+                        <li><a href="#/home" data-toggle="modal" data-target=".bs-modal-sm" ng-show="!currentUser">Sign In</a></li>
+                        <li><a href="#/home" data-toggle="modal" data-target=".bs-modal-sm" ng-show="!currentUser">Register</a></li>
+                        <li><a href="#/logout" ng-click="logout()" ng-show="currentUser">Sign Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div ng-view></div>
+    <div class="footer_div">
+        Copyright &copy;Abhishek Kumar, Northeastern University
+    </div>
+</body>
+</html>

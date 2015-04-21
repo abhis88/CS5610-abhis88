@@ -1,0 +1,27 @@
+﻿
+<div class="container routeSpacingFromTop">
+    <div class="container" ng-controller="travelController">
+        <div class="row">
+            <div class="col-xs-11">
+                <h3 class="text-center">Your Profile</h3>
+                <hr />
+                
+                <h2>Current condition</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr class="heading_color">
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{currentUser.first}}</td>
+                            <td>{{currentUser.last}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

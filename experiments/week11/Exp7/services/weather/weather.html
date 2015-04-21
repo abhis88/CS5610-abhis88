@@ -1,0 +1,109 @@
+<div class="container routeSpacingFromTop">
+    <div class="container" ng-controller="travelController">
+        <div class="row">
+            <div class="col-xs-11">
+                <h3 class="text-center">Find Weather</h3>
+                <hr />
+                <div class="form-inline text-center">
+                    City
+                    <input class="form-control" ng-model="weatherCity"
+                           placeholder="Phoenix" />
+                    <button class="btn btn-success" ng-click="searchWeather()">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+
+                <h2>Current condition</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr class="heading_color">
+                            <th>Temprature (c) C</th>
+                            <th>Temprature (f) F</th>
+                            <th>Feels Like (c)</th>
+                            <th>Feels Like (f)</th>
+                            <th>humidity C</th>
+                            <th>Desc F</th>
+                            <th>Wind Speed C</th>
+                            <th>weatherImg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="weather in weathers">
+                            <td>{{weather.temp_C}}</td>
+                            <td>{{weather.temp_F}}</td>
+                            <td>{{weather.FeelsLikeC}}</td>
+                            <td>{{weather.FeelsLikeF}}</td>
+                            <td>{{weather.humidity}}</td>
+                            <td>{{weather.weatherDesc[0].value}}</td>
+                            <td>{{weather.windspeedKmph}}</td>
+                            <td><img ng-src="{{weather.weatherIconUrl[0].value}}" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn btn-warning" ng-click="fetchFutureWeather()">
+                    <span class="glyphicon glyphicon-map-marker">Fetch Next 5 Day Forecast</span>
+                </button>
+
+                <br />
+
+                <h2>Future condition</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr class="heading_color">
+                            <th>Date</th>
+                            <th>Sunrise</th>
+                            <th>Sunset</th>
+                            <th>MinTemp (c)</th>
+                            <th>Max Tem (c)</th>
+                            <th>MinTemp (f)</th>
+                            <th>Max Temp (f)</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="fW in futureWeather">
+                            <td>{{fW.date}}</td>
+                            <td>{{fW.astronomy[0].sunrise}}</td>
+                            <td>{{fW.astronomy[0].sunset}}</td>
+                            <td>{{fW.mintempC}}</td>
+                            <td>{{fW.maxtempC}}</td>
+                            <td>{{fW.mintempF}}</td>
+                            <td>{{fW.maxtempF}}</td>
+                            <td>
+                                <button class="btn btn-warning" ng-click="fetchHourly(fW)">
+                                    <span class="glyphicon glyphicon-map-marker">Hourly Details</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h2>Hourly condition</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr class="heading_color">
+                            <th>Time</th>
+                            <th>Temp (c)</th>
+                            <th>Temp (f)</th>
+                            <th>Visibility (c)</th>
+                            <th>Desc</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="fH in hourlyWeather">
+                            <td>{{fH.time}}</td>
+                            <td>{{fH.tempC}}</td>
+                            <td>{{fH.tempF}}</td>
+                            <td>{{fH.visibility}}</td>
+                            <td>{{fH.weatherDesc[0].value}}</td>
+                            <td><img ng-src="{{fH.weatherIconUrl[0].value}}" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

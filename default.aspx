@@ -18,7 +18,7 @@
             </a>
             <ul>
                 <li><a href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a></li>
-                <li><a href="project/homepage.html" target="_blank">Project</a></li>
+                <li><a href="project/index.html" target="_blank">Project</a></li>
                 <li><a href="blog/" target="_blank">Blog</a></li>
                 <li><a href="https://github.com/abhis88/CS5610-abhis88" target="_blank">Github</a></li>
             </ul>
@@ -43,6 +43,13 @@
             <p>
                 I would like to thank Prof. Jose and TA's for providing great learning experience through out the course with constructive 
                 feedbacks and regular updates. At last, this course is very flexible and I really liked this course.
+            </p>
+            <p class="references">
+                <b>References</b>: 
+                           <a href="http://www.ccs.neu.edu/people/faculty/member/annunziato/" target="_blank">Prof. Jose Annunziato,</a> 
+                           <a href="http://www.ccs.neu.edu/home/rasala/" target="_blank">Prof. Richard Rasala,</a> 
+                           <a href="https://www.youtube.com/user/jannunzi" target="_blank">Class Videos,</a> 
+                           <a href="http://www.w3schools.com/" target="_blank">W3Schools</a>
             </p>
         </div>
     </div>
@@ -96,8 +103,8 @@
                 history stored and can be retrived anytime from any location. Request you to go through the Project Documentation to know more.
             </p>
             <ul>
-                <li><a href="project/homepage.html" target="_blank"><b>Project</b></a></li>
-                <li><a href="project/project_documentation.html" target="_blank"><b>Project Documentation</b></a></li>
+                <li><a href="http://travelguide-abhis88.rhcloud.com" target="_blank"><b>Project</b></a></li>
+                <li><a href="story/index.htm?../project/story.txt" target="_blank"><b>Project Documentation</b></a></li>
             </ul>
         </div>
     </div>
@@ -129,28 +136,28 @@
         <div class="wrapper">
             <div class="statistics">
                 <b>Statistics</b>
-                <ul>
+                <ul class="list-style-remove">
                     <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
                     <li><a href="statistics/" target="_blank">Statistics</a></li>
                 </ul>
             </div>
             <div class="search">
                 <b>Search</b>
-                <ul>
+                <ul class="list-style-remove">
                     <li><a href="search/" target="_blank">Search</a></li>
                     <li><a href="searchtree/" target="_blank">SearchTree</a></li>
                 </ul>
             </div>
             <div class="view">
                 <b>View</b>
-                <ul>
+                <ul class="list-style-remove">
                     <li><a href="textview/" target="_blank">TextView</a></li>
                     <li><a href="filelist.aspx" target="_blank">FileList</a></li>
                 </ul>
             </div>
             <div class="others">
                 <b>Others</b>
-                <ul>
+                <ul class="list-style-remove">
                     <li><a href="source/" target="_blank">Source</a></li>
                     <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
                     <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>

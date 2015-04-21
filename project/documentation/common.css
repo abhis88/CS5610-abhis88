@@ -1,0 +1,15 @@
+﻿.intro-div{
+    width:80%;
+    height:50%;
+    margin-top:2%;
+    border:1px solid black;
+}
+
+.intro-div img{
+    max-height:100%;
+    max-width:100%;
+}
+
+.spacing{
+    margin-top:20px;
+}

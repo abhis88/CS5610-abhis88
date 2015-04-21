@@ -10,3 +10,4 @@
 ../story/index.htm?../experiments/week9/story.txt               WEEK 09 - Project Related Experiments
 ../story/index.htm?../experiments/week10/story.txt              WEEK 10 - Project Related Experiments
 ../story/index.htm?../experiments/week11/story.txt              WEEK 11 - Project Related Experiments
+../story/index.htm?../experiments/project/story.txt             WEEK 12 - Project Documentation

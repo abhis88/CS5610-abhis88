@@ -1,0 +1,112 @@
+<div class="routeSpacingFromTop" ng-controller="travelController">
+    <div class="container">
+        <div class="row" ng-show="beforeSearch">
+            <div class="col-xs-12 div-color">
+                <div class="text-center"><h1>Plannig Vaccations?</h1> .... Find a way to your destination !.</div>
+                <hr />
+                <div class="form-inline text-center route_finder">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="">FROM</span>
+                        <input class="form-control" ng-model="oCity" placeholder="Boston" />
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="">&nbsp;TO&nbsp;&nbsp;</span>
+                        <input class="form-control" ng-model="dCity" placeholder="Phoenix" />
+                    </div>
+                    <div class="row text-center">
+                        <br />
+                        <div class="col-md-3"></div>
+                        <div class="alert alert-danger col-md-6" role="alert" ng-show="cantBeSame">Both Source and Destination cannot be same.</div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    </div>
+                <div class="text-center search-btn-pad-top">
+                    <button class="btn btn-success btn-lg" ng-click="searchRoutes()">
+                        <span class="glyphicon glyphicon-search">&nbsp;SEARCH</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center" ng-show="newSearch" ng-click="newSearch()">
+            <button class="btn btn-primary btn-lg">New Search</button>
+        </div>
+
+        <div class="row" ng-show="afterSearch">
+            <h2 class="text-center">Your searched for <b class="sColor">{{places[0].longName}}</b> and <b class="dColor">{{places[1].longName}}</b></h2>
+        </div>
+
+        <div class="row zeroLeftPadding" ng-show="searchedCities">
+            <div class="col-lg-12 text-center">
+                <div id="mapCanvas"></div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="searchedCities">
+            <div class="col-lg-12">
+                <h2>Route Details</h2>
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>Route Options</th>
+                            <th>Total Distance</th>
+                            <th>Total Duration</th>
+                            <th>Estimated Price</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>                       
+
+                        <tr ng-repeat-start="route in routes" ng-click="route.collapseRows = !route.collapseRows" class="collapsible-row success">
+                            <td><b>{{route.name}}</b></td>
+                            <td><b>{{route.distance}} Kilometers</b></td>
+                            <td><b>{{route.duration}}&nbsp;Minutes</b></td>
+                            <td><b>
+                                {{route.indicativePrice.price}}&nbsp;{{route.indicativePrice.currency}}
+                                <span ng-class="{'caret':!route.collapseRows, 'right-caret':route.collapseRows}"></span></b>
+                            </td>
+                        </tr>
+                        <tr ng-repeat-end ng-repeat="segment in route.segments" ng-hide="route.collapseRows">
+                            <td>&nbsp;</td>
+                            <td>
+                                <div ng-if="segment.kind == 'flight' "><b>{{$index + 1}}</b>. Take {{segment.kind}} from {{segment.sCode}} to {{segment.tCode}}</div>
+                                <div ng-if="segment.kind != 'flight' "><b>{{$index + 1}}</b>. Take {{segment.kind}} from {{segment.sName}} to {{segment.tName}}</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;Distance covered so far {{segment.distance}} Kilometers</div>
+                            </td>
+                            
+                            <td>{{segment.duration}} Minutes</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr ng-repeat-end></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <table class="table table-stripped">
+                    <tbody>
+                        <tr ng-repeat="fav in favouriteRoute">
+                            <td>{{fav.name}}</td>
+                            <td>
+                                <button class="btn btn-success" ng-click="favourite(fav)">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+                <table class="table table-stripped">
+                    <tbody>
+                        <tr ng-repeat="(key, val) in detail">
+                            <td>{{key}}</td>
+                            <td>{{val}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

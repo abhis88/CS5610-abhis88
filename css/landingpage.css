@@ -99,6 +99,13 @@ ul {
     float: left;
 }
 
+.references a{
+    color: black;
+}
+.references a:hover{
+    color:white;
+}
+
 .description {
     padding: 50px;
     margin-left: 0px;
@@ -255,6 +262,10 @@ a:hover {
 
 .experimentImage1 {
     display: none;
+}
+
+.list-style-remove{
+    list-style-type:none;
 }
 
 @media screen and (max-width: 1150px) {

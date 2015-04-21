@@ -1,0 +1,76 @@
+.routeSpacingFromTop{
+	margin-top:150px;
+}
+
+.sColor{
+    color:#8A0808;
+}
+
+.dColor{
+    color:#08298A;
+}
+
+#mapCanvas{    
+    height:300px;
+    text-align:center;
+}
+
+.zeroLeftPadding{
+    padding-left:0px;
+    padding-top:20px;
+}
+
+.div-color{
+    border:1px solid green;
+}
+
+.search-btn-pad-top{
+    margin-top:30px;
+    padding-bottom:30px;
+}
+
+/* Styles go here */
+.collapsible-row:hover
+{
+    cursor: pointer;
+    background-color:#EDF4F5;
+}
+
+.table-filter
+{
+    margin-bottom:20px;
+}
+
+    .table-filter input
+    {
+        width:200px;
+        display:inline-block;
+        margin-right:20px;
+    }
+
+    .table-filter:first-child input
+    {
+        float: left;
+        display: block;
+    }
+
+    .table-filter::after 
+    {
+	    visibility: hidden;
+	    display: block;
+	    font-size: 0;
+	    content: " ";
+	    clear: both;
+	    height: 0;
+    }
+
+.right-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-left: 4px solid;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
