@@ -1,5 +1,6 @@
 ﻿../story/whatisnext.htm?../project/            What is Next?
 documentation/introduction.html                Project Introduction
+documentation/flowchart.html                   Project Flowchart
 documentation/loginPage.html                   Login Page
 documentation/registrationPage.html            Registration Page
 documentation/contact.html                     Contact Page
@@ -9,5 +10,8 @@ documentation/profile.html                     Profile Information Page
 documentation/usersearch.html                  User Search Page
 documentation/comment.html                     Comment Page
 documentation/userfollowpage.html              User Follow / User Un Follow
+documentation/demovideo.html                   Video Demo
+documentation/apidetail.html                   API Information
+documentation/schema.html                      MongoDB Schema Information
 documentation/futureWorks.html                 Future Scope of the Project
 documentation/thankYou.html                    References and Thank You Note

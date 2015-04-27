@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Schema Page</title>
+    <link href="../../css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="common.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Schema Page</h1>
+        <hr />
+        <p>
+            This page tell about the MongoDB schema used in the project. There are in total of two schema used here, UserSchema and CommentSchema.
+        </p>
+        
+        <hr />
+        <ul>
+            <li><b>UserSchema</b>
+                <p>This schema describes about the user information. Below is how it looks.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><b>FIELD NAME</b></td>
+                            <td><b>TYPE</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>firstname</td><td>String</td></tr>
+                        <tr><td>lastname</td><td>String</td></tr>
+                        <tr><td>username</td><td>String</td></tr>
+                        <tr><td>password</td><td>String</td></tr>
+                        <tr><td>about</td><td>String</td></tr>
+                        <tr><td>email</td><td>String</td></tr>
+                        <tr><td>favuser</td><td>Array</td></tr>
+                        <tr><td>favweather</td><td>Array of Objects</td></tr>
+                        <tr><td>favplaces</td><td>Array of Objects</td></tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <b>CommentSchema</b>
+                <p>This schema describes about the comment information. Below is how it looks.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><b>FIELD NAME</b></td>
+                            <td><b>TYPE</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>firstname</td><td>String</td></tr>
+                        <tr><td>comment</td><td>String</td></tr>
+                        <tr><td>date</td><td>Date</td></tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+
+        <hr />
+        <h3>Project Page</h3>
+        <ul>
+            <li><a href="http://travelguide-abhis88.rhcloud.com" target="_blank"> Project Page</a></li>            
+        </ul>
+        <hr />
+        <h3>Source Code</h3>
+        <ul>
+            <li><a href="http://github.com/abhis88/CS5610-Project-Travel-Guide" target="_blank">Github</a></li>
+        </ul>
+    </div>
+</body>
+</html>
