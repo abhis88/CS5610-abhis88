@@ -5,5 +5,9 @@ documentation/registrationPage.html            Registration Page
 documentation/contact.html                     Contact Page
 documentation/weatherInfo.html                 Weather Information Page
 documentation/routeInfo.html                   Route Information Page
+documentation/profile.html                     Profile Information Page
+documentation/usersearch.html                  User Search Page
+documentation/comment.html                     Comment Page
+documentation/userfollowpage.html              User Follow / User Un Follow
 documentation/futureWorks.html                 Future Scope of the Project
 documentation/thankYou.html                    References and Thank You Note
