@@ -1,15 +1,29 @@
-﻿.intro-div{
-    width:80%;
-    height:50%;
-    margin-top:2%;
-    border:1px solid black;
+﻿.intro-div {
+    width: 80%;
+    height: 50%;
+    margin-top: 2%;
+    border: 1px solid black;
 }
 
-.intro-div img{
-    max-height:100%;
-    max-width:100%;
+    .intro-div img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+.spacing {
+    margin-top: 20px;
 }
 
-.spacing{
-    margin-top:20px;
+@media screen and (max-width:615px) {
+    #demo_video {
+        width:400px;
+        height:100%;
+    }
+}
+
+@media screen and (max-width:440px) {
+    #demo_video {
+        width:250px;
+        height:100%;
+    }
 }
